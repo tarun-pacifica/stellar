@@ -1,0 +1,5 @@
+TODO:
+
+Finish models.
+Methods for associations
+Backbon

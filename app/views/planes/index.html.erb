@@ -1,0 +1,52 @@
+<h1>Plane Creator</h1>
+<div id="plane_creator">
+  <form>
+    <label for=fader>Rows</label>
+    <input id="rows" name="rows" type="range" min="0" max="55" value="25" step="5">
+    <output id="rowval" for=rows id="rows">10</output>
+
+    <label for=fader>Aisles</label>
+    <input id="aisles"name="aisles" type="range" min="0" max="3" value="1">
+    <output id="aival" for=rows id=rows>10</output>
+
+    <label for=fader>Columns</label>
+    <input id="columns" name="columns" type="range" min="0" max="100" value="0" step="10">
+    <output id="colval" for=rows id=rows>10</output>
+    <input type="submit" value="GO">
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- <h1>Listing planes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @planes.each do |plane| %>
+      <tr>
+        <td><%= link_to 'Show', plane %></td>
+        <td><%= link_to 'Edit', edit_plane_path(plane) %></td>
+        <td><%= link_to 'Destroy', plane, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Plane', new_plane_path %>
+ -->
