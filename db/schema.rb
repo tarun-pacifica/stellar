@@ -21,8 +21,10 @@ ActiveRecord::Schema.define(version: 20131127111134) do
     t.string   "origin"
     t.string   "destination"
     t.integer  "plane_id"
-    t.datetime "departed"
-    t.integer  "journey_time"
+    t.date     "date_departed"
+    t.time     "time_departed"
+    t.date     "date_arrived"
+    t.time     "time_arrived"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -2,15 +2,17 @@
 #
 # Table name: flights
 #
-#  id           :integer          not null, primary key
-#  call_sign    :string(255)
-#  origin       :string(255)
-#  destination  :string(255)
-#  plane_id     :integer
-#  departed     :datetime
-#  journey_time :integer
-#  created_at   :datetime
-#  updated_at   :datetime
+#  id            :integer          not null, primary key
+#  call_sign     :string(255)
+#  origin        :string(255)
+#  destination   :string(255)
+#  plane_id      :integer
+#  date_departed :date
+#  time_departed :time
+#  date_arrived  :date
+#  time_arrived  :time
+#  created_at    :datetime
+#  updated_at    :datetime
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

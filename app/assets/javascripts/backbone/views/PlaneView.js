@@ -5,9 +5,12 @@ stellarApp.PlaneView = Backbone.View.extend({
   events: {
     "change #rows": "seat_render",
     "change #aisles": "seat_render",
-    "click #create": "createPlane"
+    "click #create": "createPlane",
+    "change #plane_name": "seat_render"
   },
-  initialize: function() {},
+  initialize: function() {
+    this.render();
+  },
   render: function() {
     var template = Handlebars.compile(stellarApp.templates.appView);
     this.$el.html(template(this.model.toJSON()));
@@ -18,14 +21,16 @@ stellarApp.PlaneView = Backbone.View.extend({
     plane.set('rows', $('#rows').val());
     plane.set('aisles', $('#aisles').val());
     plane.set('name', $('#name').val());
-    plane.save();
+    plane.save()
   },
   seat_render: function() {
     // alert('planeView.render');
     var rowval = $('#rows').val()
     var aival = $('#aisles').val();
+    var plane_name = $('#name').val();
     $('#rowval').html(rowval);
     $('#aival').html(aival);
+    $('#plane_name').html(plane_name);
 
     var templateHTML;
 

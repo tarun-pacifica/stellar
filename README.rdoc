@@ -1,5 +1,23 @@
+1/12/13
 TODO:
-
 Finish models.
 Methods for associations
-Backbon
+Backbone
+
+2/12/13
+Completed:
+- Backbone Plane Creator #planes/new
+TODO
+- Flight Create form
+incl:
+- flights/new
+- flights/show
+- flights/delete
+- flights/update
+Get set/save working
+
+- Flight search form:
+create div to show results
+create generator loop to show all options
+Reservations creator
+Passenger creator

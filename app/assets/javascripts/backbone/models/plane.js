@@ -10,5 +10,6 @@ stellarApp.Plane = Backbone.Model.extend({
 
 stellarApp.Planes = Backbone.Collection.extend({
   model: stellarApp.Plane,
-  url: 'planes'
+  url: '/planes',
+  initialize: function(model, options){}
 });

@@ -1,5 +1,6 @@
 var stellarApp = stellarApp || {}
 
+
 stellarApp.Router = Backbone.Router.extend({
   routes: {
     '':'index',
@@ -9,9 +10,9 @@ stellarApp.Router = Backbone.Router.extend({
     'flights/:id': 'getFlight'
   },
   index: function() {
-    var planeView = new stellarApp.PlaneView({collection:planeApp.planes});
-    planeView.render();
-    console.log('index:planeView.render');
+    // var planeView = new stellarApp.PlaneView({collection:planeApp.planes});
+    // planeView.render();
+    // console.log('index:planeView.render');
   },
   getPlane: function(id) {
     console.log('getplane');
@@ -28,5 +29,11 @@ stellarApp.Router = Backbone.Router.extend({
     var view = new stellarApp.PlaneView({model:new stellarApp.Plane()});
     view.render();
     console.log('new plane!');
+  },
+  newFlight: function(){
+    console.log(' render newFlight');
+    var view = new stellarApp.FlightView({model: new stellarApp.Flight()});
+    view.render();
+
   }
 });

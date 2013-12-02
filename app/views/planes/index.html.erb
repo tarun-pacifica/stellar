@@ -1,21 +1,31 @@
 <div id="main"></div>
+<div id="flight_container"></div>
 
-<script id="plane_creator"type="text/x-handlebars-template">
+<script id="plane_creator" type="text/x-handlebars-template">
   <div>
   <h1>Plane Creator</h1>
+  <h2 id="plane_name">Name?</h2>
+  <div>
+    <h2>Aisles: </h2><h2 id="aival">?</h2><br>
+    <h2>Rows: </h2><h2 id="rowval">?</h2>
+  </div
     <form>
       <label>Name</label>
-      <input name="name" id="name" type="text"><br>
+      <input name="name" id="name" type="text" autofocus="true"><br>
       <label>Rows</label>
-      <input id="rows" name="rows" type="range" min="0" max="50" value="25" step="5">
-      <output id="rowval" for=rows id="rows">10</output>
+      <input id="rows" name="rows" type="range" min="0" max="40" value="25" step="5">
+
       <label>Aisles</label>
       <input id="aisles"name="aisles" type="range" min="0" max="3" value="1">
-      <output id="aival" for=rows id=rows>10</output>
-      <input type="submit" id="create" value="GO">
+      <input type="submit" id="create" value="Create Plane"><br>
     </form>
     <div id="seating"></div>
   </div>
+</script>
+
+<script id="plane_list_template" type="text/x-handlebars-template">
+
+
 </script>
 
 <script id="single_aisle" type="text/x-handlebars-template">
@@ -71,32 +81,16 @@
 </div>
 </script>
 
-
-
-
-<!-- <h1>Listing planes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @planes.each do |plane| %>
-      <tr>
-        <td><%= link_to 'Show', plane %></td>
-        <td><%= link_to 'Edit', edit_plane_path(plane) %></td>
-        <td><%= link_to 'Destroy', plane, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Plane', new_plane_path %>
- -->
+<script id="flight_creator_template" type="text/x-handlebars-template">
+  <h1>Stellar Airlines</h1>
+  <input name="call_sign" id="call_sign" type="text" autofocus="true" placeholder="CALLSIGN"><br>
+  <input name="origin" id="origin" type="text" placeholder="ORIGIN"><br>
+  <input name="destination" id="destination" type="text" placeholder="DESTINATION"><br>
+  <input name="plane_type" id="plane_id" type="dropdown" placeholder="PLANE TYPE"><br>
+  <input name="date_departed" id="date_departed" type="date"><br>
+  <input name="time_departed" id="time_departed" type="time"><br>
+  <input name="date_arrived" id="date_arrived" type="date"><br>
+  <input name="time_arrived" id="time_arrived" type="time"><br>
+  <input name="journey_time" id="journey_time" type="integer" placeholder="JOURNEY LENGTH"><br>
+  <input type="submit" id="create_flight" value="Create Flight"><br>
+</script>
