@@ -4,59 +4,71 @@
   <div>
   <h1>Plane Creator</h1>
     <form>
+      <label>Name</label>
+      <input name="name" id="name" type="text"><br>
       <label>Rows</label>
-      <input id="rows" name="rows" type="range" min="0" max="75" value="25" step="5">
+      <input id="rows" name="rows" type="range" min="0" max="50" value="25" step="5">
       <output id="rowval" for=rows id="rows">10</output>
-
       <label>Aisles</label>
       <input id="aisles"name="aisles" type="range" min="0" max="3" value="1">
       <output id="aival" for=rows id=rows>10</output>
-      <input type="submit" value="GO">
+      <input type="submit" id="create" value="GO">
     </form>
+    <div id="seating"></div>
   </div>
+</script>
 
-  <div id="f"class="window seat"></div>
-  <div id="e"class="seat"></div>
-  <div id="d"class="seat"></div>
+<script id="single_aisle" type="text/x-handlebars-template">
+
+<div class="plane-row">
+  <div id="f"class="window seat">{{row}}f</div>
+  <div id="e"class="seat">{{row}}e</div>
+  <div id="d"class="seat">{{row}}d</div>
   <div class="aisle"></div>
-  <div id="c"class="seat"></div>
-  <div id="b"class="seat"></div>
-  <div id="a"class="window seat"></div>
+  <div id="c"class="seat">{{row}}c</div>
+  <div id="b"class="seat">{{row}}b</div>
+  <div id="a"class="window seat">{{row}}a</div>
+</div>
 </script>
 
 <script id="dual_aisle" type="text/x-handlebars-template">
-  <div id="j"class="window seat"></div>
-  <div id="i"class="seat"></div>
-  <div id="h"class="aisle"></div>
+<div class="plane-row">
+  <div id="j"class="window seat">{{row}}j</div>
+  <div id="i"class="seat">{{row}}i</div>
+  <div id="h"class="seat">{{row}}h</div>
   <div class="aisle"></div>
-  <div id="g"class="seat"></div>
-  <div id="f"class="seat"></div>
-  <div id="e"class="seat"></div>
-  <div id="d"class="seat"></div>
+  <div id="g"class="seat">{{row}}g</div>
+  <div id="f"class="seat">{{row}}f</div>
+  <div id="e"class="seat">{{row}}e</div>
+  <div id="d"class="seat">{{row}}d</div>
   <div class="aisle"></div>
-  <div id="c"class="seat"></div>
-  <div id="b"class="seat"></div>
-  <div id="a"class="window seat"></div>
+  <div id="c"class="seat">{{row}}c</div>
+  <div id="b"class="seat">{{row}}b</div>
+  <div id="a"class="window seat">{{row}}a</div>
+</div>
 </script>
 
 <script id="triple_aisle" type="text/x-handlebars-template">
-  <div id="n"class="window seat"></div>
-  <div id="m"class="seat"></div>
-  <div id="l"class="seat"></div>
+
+<div class="plane-row">
+  <div id="n"class="window seat">{{row}}n</div>
+  <div id="m"class="seat">{{row}}m</div>
+  <div id="l"class="seat">{{row}}l</div>
   <div class="aisle"></div>
-  <div id="k"class="seat"></div>
-  <div id="j"class="seat"></div>
-  <div id="i"class="seat"></div>
-  <div id="h"class="seat"></div>
+  <div id="k"class="seat">{{row}}k</div>
+  <div id="j"class="seat">{{row}}j</div>
+  <div id="i"class="seat">{{row}}i</div>
+  <div id="h"class="seat">{{row}}h</div>
   <div class="aisle"></div>
-  <div id="g"class="seat"></div>
-  <div id="f"class="seat"></div>
-  <div id="e"class="seat"></div>
-  <div id="d"class="seat"></div>
+  <div id="g"class="seat">{{row}}g</div>
+  <div id="f"class="seat">{{row}}f</div>
+  <div id="e"class="seat">{{row}}e</div>
+  <div id="d"class="seat">{{row}}d</div>
   <div class="aisle"></div>
-  <div id="c"class="seat"></div>
-  <div id="b"class="seat"></div>
-  <div id="a"class="window seat"></div>
+  <div id="c"class="seat">{{row}}c</div>
+  <div id="b"class="seat">{{row}}b</div>
+  <div id="a"class="window seat">{{row}}a</div>
+</div>
 </script>
 
 

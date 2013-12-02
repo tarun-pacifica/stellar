@@ -13,6 +13,7 @@
 
 class Plane < ActiveRecord::Base
 
+attr_accessible :name, :rows, :aisles
 has_many :flights
 
 end

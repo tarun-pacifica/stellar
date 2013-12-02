@@ -3,18 +3,27 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .seat {
-    border: 20px solid red;
-    max-width: 10px;
-    min-height: 3px;
-    min-width: 7px;
-    color: black;
+    border: 1px solid red;
+    max-width: 26px;
+    min-height: 26px;
+    min-width: 26px;
+    color: white;
+    font-size: 10px;
+    &:hover{
+        background-color: red;
+    }
 }
 .aisle {
-    min-width: 5px;
-    min-height: 3px;
+    min-width: 26px;
+    min-height: 26px;
     background-color: grey;
 }
 .row {
-    min-width: 5px;
-    border: 2px solid blue;
+    min-width: 26px;
+    border: 1px solid blue;
+}
+
+.plane-row {
+    width: 26px;
+    float: left;
 }

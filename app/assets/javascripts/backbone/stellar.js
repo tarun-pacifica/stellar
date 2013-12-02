@@ -3,9 +3,9 @@ var stellarApp = stellarApp || {};
 $(document).ready(function(){
   stellarApp.templates = {
     appView: $('#plane_creator').html(),
-    planeView1: $('#single_aisle').html(),
-    planeView2: $('#dual_aisle').html(),
-    planeView3: $('#triple_aisle').html()
+    singleaisleView: $('#single_aisle').html(),
+    dualaisleView: $('#dual_aisle').html(),
+    tripleaisleView: $('#triple_aisle').html()
   };
   stellarApp.planes = new stellarApp.Planes();
   // stellarApp.planes.fetch().done(function(){

@@ -11,22 +11,22 @@ stellarApp.Router = Backbone.Router.extend({
   index: function() {
     var planeView = new stellarApp.PlaneView({collection:planeApp.planes});
     planeView.render();
-    alert('render');
+    console.log('index:planeView.render');
   },
   getPlane: function(id) {
-    alert('getplane');
+    console.log('getplane');
     var plane = stellarApp.planes.get(id);
     var view = new stellarApp.PlaneView({model:plane});
     plane.fetch({
       success: function(){
         view.render();
-        alert('success!');
+        console.log('getPlane:.fetchsuccess!');
       }
     })
   },
   newPlane: function(){
     var view = new stellarApp.PlaneView({model:new stellarApp.Plane()});
     view.render();
-    alert('new plane!');
+    console.log('new plane!');
   }
 });
