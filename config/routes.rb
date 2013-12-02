@@ -1,4 +1,6 @@
 Stellar::Application.routes.draw do
+  root :to => 'planes#index'
+
   resources :passengers
 
   resources :reservations

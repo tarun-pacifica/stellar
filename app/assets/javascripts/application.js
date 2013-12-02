@@ -16,4 +16,5 @@
 //= require backbone
 //= require backbone/app
 //= require bootstrap
+//= require handlebars-v1.1.2.js
 //= require_tree .

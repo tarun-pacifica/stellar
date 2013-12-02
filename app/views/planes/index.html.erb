@@ -1,25 +1,63 @@
-<h1>Plane Creator</h1>
-<div id="plane_creator">
-  <form>
-    <label for=fader>Rows</label>
-    <input id="rows" name="rows" type="range" min="0" max="55" value="25" step="5">
-    <output id="rowval" for=rows id="rows">10</output>
+<div id="main"></div>
 
-    <label for=fader>Aisles</label>
-    <input id="aisles"name="aisles" type="range" min="0" max="3" value="1">
-    <output id="aival" for=rows id=rows>10</output>
+<script id="plane_creator"type="text/x-handlebars-template">
+  <div>
+  <h1>Plane Creator</h1>
+    <form>
+      <label>Rows</label>
+      <input id="rows" name="rows" type="range" min="0" max="75" value="25" step="5">
+      <output id="rowval" for=rows id="rows">10</output>
 
-    <label for=fader>Columns</label>
-    <input id="columns" name="columns" type="range" min="0" max="100" value="0" step="10">
-    <output id="colval" for=rows id=rows>10</output>
-    <input type="submit" value="GO">
-  </form>
-</div>
+      <label>Aisles</label>
+      <input id="aisles"name="aisles" type="range" min="0" max="3" value="1">
+      <output id="aival" for=rows id=rows>10</output>
+      <input type="submit" value="GO">
+    </form>
+  </div>
 
+  <div id="f"class="window seat"></div>
+  <div id="e"class="seat"></div>
+  <div id="d"class="seat"></div>
+  <div class="aisle"></div>
+  <div id="c"class="seat"></div>
+  <div id="b"class="seat"></div>
+  <div id="a"class="window seat"></div>
+</script>
 
+<script id="dual_aisle" type="text/x-handlebars-template">
+  <div id="j"class="window seat"></div>
+  <div id="i"class="seat"></div>
+  <div id="h"class="aisle"></div>
+  <div class="aisle"></div>
+  <div id="g"class="seat"></div>
+  <div id="f"class="seat"></div>
+  <div id="e"class="seat"></div>
+  <div id="d"class="seat"></div>
+  <div class="aisle"></div>
+  <div id="c"class="seat"></div>
+  <div id="b"class="seat"></div>
+  <div id="a"class="window seat"></div>
+</script>
 
-
-
+<script id="triple_aisle" type="text/x-handlebars-template">
+  <div id="n"class="window seat"></div>
+  <div id="m"class="seat"></div>
+  <div id="l"class="seat"></div>
+  <div class="aisle"></div>
+  <div id="k"class="seat"></div>
+  <div id="j"class="seat"></div>
+  <div id="i"class="seat"></div>
+  <div id="h"class="seat"></div>
+  <div class="aisle"></div>
+  <div id="g"class="seat"></div>
+  <div id="f"class="seat"></div>
+  <div id="e"class="seat"></div>
+  <div id="d"class="seat"></div>
+  <div class="aisle"></div>
+  <div id="c"class="seat"></div>
+  <div id="b"class="seat"></div>
+  <div id="a"class="window seat"></div>
+</script>
 
 
 
