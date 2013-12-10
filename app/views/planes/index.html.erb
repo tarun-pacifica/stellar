@@ -113,4 +113,35 @@
   <input name="time_arrived" id="time_arrived" type="time"><br>
   <input name="journey_time" id="journey_time" type="integer" placeholder="JOURNEY LENGTH"><br>
   <input type="submit" id="create_flight" value="Create Flight"><br>
+  <div id="flight_table">
+    <div>
+      <h1>Flight Creator</h1>
+      <h2 id="flight_name">Name?</h2>
+    </div>
+    <div id="flight_viewer">
+      <table>
+        <tr>
+          <th>call_sign</th>
+          <th>origin</th>
+          <th>plane_type</th>
+          <th>date_departed</th>
+          <th>time_departed</th>
+          <th>date_arrived</th>
+          <th>time_arrived</th>
+        </tr>
+      {{#each flights}}
+        <tr>
+          <td>{{this.call_sign}}</td>
+          <td>{{this.origin}}</td>
+          <td>{{this.plane.name}}</td>
+          <td>{{this.destination}}</td>
+          <td>{{this.date_departed}}</td>
+          <td>{{this.time_departed}}</td>
+          <td>{{this.date_arrived}}</td>
+          <td>{{this.time_arrived}}</td>
+        </tr>
+      {{/each}}
+      </table>
+    </div>
+  </div>
 </script>

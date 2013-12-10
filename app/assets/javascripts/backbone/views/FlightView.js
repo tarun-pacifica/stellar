@@ -7,12 +7,14 @@ stellarApp.FlightView = Backbone.View.extend({
   },
   initialize: function() {
     this.render();
+    this.listenTo(stellarApp.flights, 'add', this.render);
   },
   render: function() {
-    console.log(stellarApp)
+    console.log('stellarApp is being rendered:'+stellarApp)
     var template = Handlebars.compile(stellarApp.templates.flightcreatorView);
     var model = this.model.toJSON();
     model.planes = stellarApp.planes.toJSON();
+    model.flights = stellarApp.flights.toJSON();
     this.$el.html(template(model));
   },
   createFlight: function(e) {
@@ -26,7 +28,10 @@ stellarApp.FlightView = Backbone.View.extend({
     flight.set('time_arrived', $('#time_arrived').val()),
     flight.set('date_departed', $('#date_departed').val()),
     flight.set('date_arrived', $('#date_arrived').val()),
-    flight.save()
+    flight.save().done(function(){
+      console.log('saved!',flight);
+      stellarApp.flights.fetch();
+    });
   },
   flight_render: function() {
     var templateHTML;

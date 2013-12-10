@@ -1,6 +1,5 @@
 var stellarApp = stellarApp || {}
 
-
 stellarApp.Router = Backbone.Router.extend({
   routes: {
     '':'index',
@@ -27,8 +26,8 @@ stellarApp.Router = Backbone.Router.extend({
   },
   newPlane: function(){
     var plane = new stellarApp.Plane();
-    var view = new stellarApp.PlaneView({model:plane});
-    view.render();
+    stellarApp.planepageview = new stellarApp.PlaneView({model:plane});
+    stellarApp.planepageview.render();
     console.log('new plane!');
   },
   newFlight: function(){

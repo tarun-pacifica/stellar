@@ -10,8 +10,10 @@ stellarApp.PlaneView = Backbone.View.extend({
   },
   initialize: function() {
     this.render();
+    this.listenTo(stellarApp.planes, 'add', this.render);
   },
   render: function() {
+    console.log('PlaneView is being rendered');
     var template = Handlebars.compile(stellarApp.templates.appView);
     var model = this.model.toJSON();
     model.planes = stellarApp.planes.toJSON();
@@ -25,7 +27,6 @@ stellarApp.PlaneView = Backbone.View.extend({
     plane.set('name', $('#name').val());
     plane.save().done(function(){
       stellarApp.planes.fetch();
-      stellarApp.PlaneView.render();
     });
   },
   seat_render: function() {
@@ -49,7 +50,6 @@ stellarApp.PlaneView = Backbone.View.extend({
       case "3":
         templateHTML = stellarApp.templates.tripleaisleView;
     }
-
     this.$el.find('#seating', '#name').empty();
     var template = Handlebars.compile(templateHTML);
     for (var i = 0; i < parseInt(rowval); i++) {
@@ -57,31 +57,5 @@ stellarApp.PlaneView = Backbone.View.extend({
         row: i + 1
       }))
     }
-    /*
-    var template = Handlebars.compile(stellarApp.templates.appView);
-    this.$el.html(template(this.model.toJSON()));
-      $('#rows').val(rowval);
-      $('#aisles').val(aival);
- */
   }
-  /*
-  add_plane: function(event) {
-    event.preventDefault();
-    var row = this.$el.find('#rows').val();
-    console.log('row:'+row);
-    var aisle = this.$el.find('#aisles').val();
-    var plane = new stellarApp.Plane({
-      plane_id: plane_id,
-      aisle: aisle,
-      row: row
-    });
-    plane.save();
-    var view = this;
-    this.model.fetch().done(function() {
-      alert('fetching');
-      view.render();
-    });
-    return false;
-  }
-  */
 });

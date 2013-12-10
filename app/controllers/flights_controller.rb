@@ -4,7 +4,11 @@ class FlightsController < ApplicationController
   # GET /flights
   # GET /flights.json
   def index
-    @flights = Flight.all
+    @flights = Flight.all.includes(:plane)
+      respond_to do |format|
+      format.html
+      format.json { render :json => @flights, :include => :plane }
+    end
   end
 
   # GET /flights/1
@@ -24,7 +28,6 @@ class FlightsController < ApplicationController
   # POST /flights
   # POST /flights.json
  def create
-  binding.pry
     flight = Flight.create(:call_sign => params[:call_sign],
       :origin => params[:origin],
       :destination => params[:destination],
