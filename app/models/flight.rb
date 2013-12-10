@@ -16,7 +16,7 @@
 #
 
 class Flight < ActiveRecord::Base
-attr_accessible  :call_sign, :origin, :destination, :time_departed, :date_departed, :time_arrived, :date_arrived
+attr_accessible  :call_sign, :origin, :destination, :time_departed, :date_departed, :time_arrived, :plane_id, :date_arrived
 belongs_to :plane
 has_many :reservations
 has_many :passengers, through: :reservations

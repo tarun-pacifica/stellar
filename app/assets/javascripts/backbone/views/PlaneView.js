@@ -13,7 +13,9 @@ stellarApp.PlaneView = Backbone.View.extend({
   },
   render: function() {
     var template = Handlebars.compile(stellarApp.templates.appView);
-    this.$el.html(template(this.model.toJSON()));
+    var model = this.model.toJSON();
+    model.planes = stellarApp.planes.toJSON();
+    this.$el.html(template(model));
   },
   createPlane: function(e) {
     e.preventDefault();
@@ -21,10 +23,12 @@ stellarApp.PlaneView = Backbone.View.extend({
     plane.set('rows', $('#rows').val());
     plane.set('aisles', $('#aisles').val());
     plane.set('name', $('#name').val());
-    plane.save()
+    plane.save().done(function(){
+      stellarApp.planes.fetch();
+      stellarApp.PlaneView.render();
+    });
   },
   seat_render: function() {
-    // alert('planeView.render');
     var rowval = $('#rows').val()
     var aival = $('#aisles').val();
     var plane_name = $('#name').val();

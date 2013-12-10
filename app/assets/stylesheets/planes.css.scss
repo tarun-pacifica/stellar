@@ -11,24 +11,47 @@
     font-size: 10px;
     &:hover{
         background-color: red;
+        border-radius: 50%;
+        height: 200%;
+        width: 200%;
     }
 }
-.aisle {
+.aisles {
     min-width: 26px;
     min-height: 26px;
-    background-color: grey;
+    background-color: blue;
+    -webkit-appearance: slider-vertical;
+}
+
+.circle {
+    background: red;
+    color: white;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    display: inline-block;
+    top: 40%;
+    position: relative;
+    color: white;
+    outline-color: white;
+    vertical-align: center;
+    margin-left: 10px;
 }
 .row {
     min-width: 26px;
     border: 1px solid blue;
 }
 
+#plane_viewer {
+    border: 1px solid red;
+}
+#plane_table {
+float: left}
+
 .plane-row {
     width: 26px;
     float: left;
-}
-body {
-    margin: 20px;
 }
 #seating {
     margin-top: 20px;

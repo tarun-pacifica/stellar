@@ -12,9 +12,9 @@ $(document).ready(function(){
   };
   stellarApp.flights = new stellarApp.Flights();
   stellarApp.planes = new stellarApp.Planes();
-  // stellarApp.planes.fetch().done(function(){
-    // alert('fetched');
-  // })
-  var router = new stellarApp.Router();
-  Backbone.history.start();
+  stellarApp.planes.fetch().done(function(){
+    console.log(stellarApp.planes.models);
+    var router = new stellarApp.Router();
+    Backbone.history.start();
+  })
 });

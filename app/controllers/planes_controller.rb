@@ -5,6 +5,10 @@ class PlanesController < ApplicationController
   # GET /planes.json
   def index
     @planes = Plane.all
+    respond_to do |format|
+      format.html
+      format.json { render :json => @planes }
+    end
   end
 
   # GET /planes/1
@@ -24,18 +28,15 @@ class PlanesController < ApplicationController
   # POST /planes
   # POST /planes.json
   def create
-    @plane = Plane.new(plane_params)
-
-    respond_to do |format|
-      if @plane.save
-        format.html { redirect_to @plane, notice: 'Plane was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @plane }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @plane.errors, status: :unprocessable_entity }
-      end
-    end
+    plane = Plane.create(
+    :name => params[:name],
+    :rows => params[:rows],
+    :columns => params[:columns],
+    :aisles => params[:aisles])
+    plane.save
+    render :json => plane
   end
+
 
   # PATCH/PUT /planes/1
   # PATCH/PUT /planes/1.json

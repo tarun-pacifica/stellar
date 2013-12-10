@@ -2,30 +2,46 @@
 <div id="flight_container"></div>
 
 <script id="plane_creator" type="text/x-handlebars-template">
+  <div id="plane_table">
+    <div>
+      <h1>Plane Creator</h1>
+      <h2 id="plane_name">Name?</h2>
+    </div>
+    <div id="plane_viewer">
+      <table>
+        <tr>
+          <th>NAME</th>
+          <th>ROWs</th>
+          <th>AISLEs</th>
+        </tr>
+      {{#each planes}}
+        <tr>
+          <td>{{this.name}}</td>
+          <td>{{this.rows}}</td>
+          <td>{{this.aisles}}</td>
+        </tr>
+      {{/each}}
+      </table>
+    </div>
+  </div>
+  <div class="circle">
+    <h2 id="aival">0</h2>
+  </div>
+  <div class="circle">
+    <h2 id="rowval">Rows</h2>
+  </div>
   <div>
-  <h1>Plane Creator</h1>
-  <h2 id="plane_name">Name?</h2>
-  <div>
-    <h2>Aisles: </h2><h2 id="aival">?</h2><br>
-    <h2>Rows: </h2><h2 id="rowval">?</h2>
-  </div
     <form>
       <label>Name</label>
       <input name="name" id="name" type="text" autofocus="true"><br>
       <label>Rows</label>
-      <input id="rows" name="rows" type="range" min="0" max="40" value="25" step="5">
-
+      <input id="rows" name="rows" type="range".vertical min="0" max="40" value="25" step="5">
       <label>Aisles</label>
       <input id="aisles"name="aisles" type="range" min="0" max="3" value="1">
       <input type="submit" id="create" value="Create Plane"><br>
     </form>
     <div id="seating"></div>
   </div>
-</script>
-
-<script id="plane_list_template" type="text/x-handlebars-template">
-
-
 </script>
 
 <script id="single_aisle" type="text/x-handlebars-template">
@@ -86,7 +102,11 @@
   <input name="call_sign" id="call_sign" type="text" autofocus="true" placeholder="CALLSIGN"><br>
   <input name="origin" id="origin" type="text" placeholder="ORIGIN"><br>
   <input name="destination" id="destination" type="text" placeholder="DESTINATION"><br>
-  <input name="plane_type" id="plane_id" type="dropdown" placeholder="PLANE TYPE"><br>
+  <select name="plane_type" id="plane_type">
+    {{#each planes}}
+    <option value="{{this.id}}">{{this.name}}</option>
+    {{/each}}
+  </select><br>
   <input name="date_departed" id="date_departed" type="date"><br>
   <input name="time_departed" id="time_departed" type="time"><br>
   <input name="date_arrived" id="date_arrived" type="date"><br>

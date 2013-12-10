@@ -14,7 +14,11 @@ incl:
 - flights/show
 - flights/delete
 - flights/update
-Get set/save working
+Get set/save working:
+
+1. Update params in controller for create method;
+2. update select/iterator to show JSON list of Planes
+3. smoothscroller + parallax + Raphael.js/D3.js + threejs.com + chart.js + requirejs.org (AMD) + spritesheets +
 
 - Flight search form:
 create div to show results

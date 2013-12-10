@@ -5,6 +5,7 @@ stellarApp.Plane = Backbone.Model.extend({
   defaults: {
     rows: 10,
     aisles: 1,
+    name:'JoelAirways'
   }
 });
 
