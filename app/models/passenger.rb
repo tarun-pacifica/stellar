@@ -12,6 +12,7 @@
 #
 
 class Passenger < ActiveRecord::Base
+  attr_accessible :name, :contact_number, :nationality, :meal_pref
   has_many :reservations
   has_many :flights, through: :reservations
 end

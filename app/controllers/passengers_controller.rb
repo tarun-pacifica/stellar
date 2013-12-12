@@ -5,6 +5,10 @@ class PassengersController < ApplicationController
   # GET /passengers.json
   def index
     @passengers = Passenger.all
+    respond_to do |format|
+      format.html
+      format.json { render :json => @passengers}
+    end
   end
 
   # GET /passengers/1
@@ -24,17 +28,9 @@ class PassengersController < ApplicationController
   # POST /passengers
   # POST /passengers.json
   def create
-    @passenger = Passenger.new(passenger_params)
-
-    respond_to do |format|
-      if @passenger.save
-        format.html { redirect_to @passenger, notice: 'Passenger was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @passenger }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @passenger.errors, status: :unprocessable_entity }
-      end
-    end
+    passenger = Passenger.new(:name => params[:name], :contact_number => params[:contact_number], :nationality => params[:nationality], :meal_pref => params[:meal_pref])
+    passenger.save
+    render :json => passenger
   end
 
   # PATCH/PUT /passengers/1

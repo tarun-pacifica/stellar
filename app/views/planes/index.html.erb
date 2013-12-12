@@ -145,3 +145,32 @@
     </div>
   </div>
 </script>
+
+<script id="passenger_creator_template" type="text/x-handlebars-template">
+  <h1>Passenger Creator</h1>
+  <div>
+    <input type="text" autofocus="true" name="passenger_name" id="passenger_name" placeholder="Passenger Name">
+    <input type="text" name="contact_number" id="contact_number" placeholder="Contact Number">
+    <input type="text" name="nationality" id="nationality" placeholder="Nationality">
+    <input type="text" name="meal_pref" id="meal_pref" placeholder="Meal Preference">
+    <input type="submit" id="passenger_submit" value="New Passenger"></br>
+  </div>
+  <div id="passenger_viewer">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>contact_number</th>
+          <th>Nationality</th>
+          <th>Meal Preference</th>
+        </tr>
+      {{#each passengers}}
+        <tr>
+          <td>{{this.name}}</td>
+          <td>{{this.contact_number}}</td>
+          <td>{{this.nationality}}</td>
+          <td>{{this.meal_pref}}</td>
+        </tr>
+      {{/each}}
+      </table>
+  </div>
+</script>

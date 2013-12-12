@@ -36,7 +36,7 @@ stellarApp.FlightView = Backbone.View.extend({
   flight_render: function() {
     var templateHTML;
     templateHTML = stellarApp.templates.flightcreatorView;
-    ('#flight_container').empty();
+    ('#main').empty();
     var template = Handlebars.compile(templateHTML);
   }
 });
