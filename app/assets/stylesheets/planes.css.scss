@@ -39,8 +39,10 @@
     border: 1px solid blue;
 }
 
-#plane_viewer, #flight_viewer {
+#plane_viewer, #flight_viewer, #passenger_viewer {
     border: 1px solid red;
+    background-color: red;
+    color: white;
 }
 #plane_table, #flight_table {
 float: left}
