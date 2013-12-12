@@ -6,6 +6,7 @@ stellarApp.PassengerView = Backbone.View.extend({
     "click #passenger_submit" : "createPassenger"
   },
   initialize: function() {
+    this.$el.off('click #passenger_submit');
     this.render();
     this.listenTo(stellarApp.passengers, 'add', this.render);
   },

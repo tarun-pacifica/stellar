@@ -5,6 +5,10 @@ class ReservationsController < ApplicationController
   # GET /reservations.json
   def index
     @reservations = Reservation.all
+    respond_to do |format|
+      format.html
+      format.json { render :json => @reservations}
+    end
   end
 
   # GET /reservations/1
@@ -24,17 +28,10 @@ class ReservationsController < ApplicationController
   # POST /reservations
   # POST /reservations.json
   def create
-    @reservation = Reservation.new(reservation_params)
-
-    respond_to do |format|
-      if @reservation.save
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @reservation }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @reservation.errors, status: :unprocessable_entity }
-      end
-    end
+    reservation = Reservation.create(
+      :name => params[:name])
+    reservation.save
+    render :json => reservation
   end
 
   # PATCH/PUT /reservations/1

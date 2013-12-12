@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 20131127111134) do
   create_table "planes", force: true do |t|
     t.string   "name"
     t.integer  "rows"
-    t.integer  "columns"
     t.integer  "aisles"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -5,7 +5,8 @@ stellarApp.Router = Backbone.Router.extend({
     '':'index',
     'planes': 'newPlane',
     'flights': 'newFlight',
-    'passengers': 'newPassenger'
+    'passengers': 'newPassenger',
+    'reservations': 'newReservation'
   },
   index: function() {
     // var planeView = new stellarApp.PlaneView({collection:planeApp.planes});
@@ -30,14 +31,18 @@ stellarApp.Router = Backbone.Router.extend({
     console.log('new plane!');
   },
   newFlight: function(){
-    console.log(' render newFlight');
+    console.log('render newFlight');
     var view = new stellarApp.FlightView({model: new stellarApp.Flight()});
     view.render();
-
   },
   newPassenger: function(){
     console.log('render newPassenger');
     var view = new stellarApp.PassengerView({model: new stellarApp.Passenger()});
+    view.render();
+  },
+  newReservation: function () {
+    console.log('render newReservation');
+    var view = new stellarApp.ReservationView({model: new stellarApp.Reservation()});
     view.render();
   }
 });

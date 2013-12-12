@@ -6,6 +6,7 @@ stellarApp.FlightView = Backbone.View.extend({
     "click #create_flight": "createFlight",
   },
   initialize: function() {
+    this.$el.off('click #create_flight');
     this.render();
     this.listenTo(stellarApp.flights, 'add', this.render);
   },

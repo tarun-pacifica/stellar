@@ -31,7 +31,6 @@ class PlanesController < ApplicationController
     plane = Plane.create(
     :name => params[:name],
     :rows => params[:rows],
-    :columns => params[:columns],
     :aisles => params[:aisles])
     plane.save
     render :json => plane

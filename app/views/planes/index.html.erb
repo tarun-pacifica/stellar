@@ -1,3 +1,10 @@
+<header>
+interSTELLAR airlines<br>
+  <a rel="stylesheet" href="#planes">planes</a><br>
+  <a rel="stylesheet" href="#flights">flights</a><br>
+  <a rel="stylesheet" href="#reservations">reservations</a><br>
+  <a rel="stylesheet" href="#passengers">passengers</a><br>
+</header>
 <div id="main"></div>
 <div id="flight_container"></div>
 
@@ -111,7 +118,6 @@
   <input name="time_departed" id="time_departed" type="time"><br>
   <input name="date_arrived" id="date_arrived" type="date"><br>
   <input name="time_arrived" id="time_arrived" type="time"><br>
-  <input name="journey_time" id="journey_time" type="integer" placeholder="JOURNEY LENGTH"><br>
   <input type="submit" id="create_flight" value="Create Flight"><br>
   <div id="flight_table">
     <div>
@@ -172,5 +178,11 @@
         </tr>
       {{/each}}
       </table>
+  </div>
+</script>
+
+<script type="text/x-handlebars-template" id="reservations_template">
+  <div>
+    <h1>RESERVATIONS BOOKER</h1>
   </div>
 </script>
