@@ -5,6 +5,7 @@ class FlightsController < ApplicationController
   # GET /flights.json
   def index
     @flights = Flight.all.includes(:plane)
+    @flights = @flights.order(date_departed: :asc)
       respond_to do |format|
       format.html
       format.json { render :json => @flights, :include => :plane }

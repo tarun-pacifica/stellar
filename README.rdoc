@@ -1,3 +1,16 @@
+13/12/13
+
+TODO:
+
+1. Update controller to sort JSON data serverside
+2. Reservations Page:
+3. Create Search Flights based on Origin and Destination with autocomplete field
+4. List View ORIGIN DESTINATION DATETIME SEATS
+5. FLights/:id RESTFUL URL in BACKBONE
+6.  CLICKABLE LIST OF PASSENGER NAMES AVAILABLE WITH SEAT MATRIX
+7. JQuery DateFormat tool
+
+
 1/12/13
 TODO:
 Finish models.

@@ -4,23 +4,19 @@
 
 .seat {
     border: 1px solid red;
-    max-width: 26px;
+    width: 26px;
     min-height: 26px;
-    min-width: 26px;
     color: white;
     font-size: 10px;
     &:hover{
         background-color: red;
         border-radius: 50%;
-        height: 200%;
-        width: 200%;
     }
 }
-.aisles {
-    min-width: 26px;
+.aisle {
+    width: 26px;
     min-height: 26px;
-    background-color: blue;
-    -webkit-appearance: slider-vertical;
+    background-color: pink;
 }
 
 .circle {

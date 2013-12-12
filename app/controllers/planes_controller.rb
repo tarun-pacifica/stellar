@@ -5,6 +5,7 @@ class PlanesController < ApplicationController
   # GET /planes.json
   def index
     @planes = Plane.all
+    @planes = @planes.order(created_at: :desc)
     respond_to do |format|
       format.html
       format.json { render :json => @planes }
