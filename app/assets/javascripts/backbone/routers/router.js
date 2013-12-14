@@ -46,7 +46,8 @@ stellarApp.Router = Backbone.Router.extend({
     view.render();
     new AutoCompleteView({
       input: $('#origin_name'),
-      model: stellarApp.planes
+      input: $('#destination_name'),
+      model: stellarApp.flights
     }).render();
   }
 });
