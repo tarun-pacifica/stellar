@@ -131,7 +131,8 @@ interSTELLAR airlines<br>
         <tr>
           <th>call_sign</th>
           <th>origin</th>
-          <th>plane_type</th>
+          <th>destination</th>
+          <th>plane type</th>
           <th>date_departed</th>
           <th>time_departed</th>
           <th>date_arrived</th>
@@ -141,8 +142,8 @@ interSTELLAR airlines<br>
         <tr>
           <td>{{this.call_sign}}</td>
           <td>{{this.origin}}</td>
-          <td>{{this.plane.name}}</td>
           <td>{{this.destination}}</td>
+          <td>{{this.plane.name}}</td>
           <td>{{this.date_departed}}</td>
           <td>{{this.time_departed}}</td>
           <td>{{this.date_arrived}}</td>
@@ -191,6 +192,34 @@ interSTELLAR airlines<br>
         <input type="text" autofocus="true" name="origin_name" id="origin_name" placeholder="origin_name">
       <h2>DESTINATION</h2>
         <input type="text" autofocus="true" name="destination_name" id="destination_name" placeholder="destination_name">
+    </div>
+    <div id="flight_table">
+    <div>
+      <h1>Flights</h1>
+    </div>
+    <div id="flight_viewer">
+      <table>
+        <tr>
+          <th>call_sign</th>
+          <th>origin</th>
+          <th>destination</th>
+          <th>plane type</th>
+          <th>date_departed</th>
+          <th>time_departed</th>
+          <th>seats_available</th>
+        </tr>
+      {{#each flights}}
+        <tr>
+          <td>{{this.call_sign}}</td>
+          <td>{{this.origin}}</td>
+          <td>{{this.destination}}</td>
+          <td>{{this.plane.name}}</td>
+          <td>{{this.date_departed}}</td>
+          <td>{{this.time_departed}}</td>
+          <td></td>
+        </tr>
+      {{/each}}
+      </table>
     </div>
   </div>
 </script>
