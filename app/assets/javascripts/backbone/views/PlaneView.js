@@ -11,8 +11,7 @@ stellarApp.PlaneView = Backbone.View.extend({
   initialize: function() {
     this.$el.off('click #create');
     this.render();
-    this.listenTo(stellarApp.planes, 'add', this.render);
-  },
+    this.listenTo(stellarApp.planes, 'add', this.render);  },
   render: function() {
     console.log('PlaneView is being rendered');
     var template = Handlebars.compile(stellarApp.templates.appView);

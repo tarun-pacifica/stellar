@@ -2,7 +2,7 @@
 
 TODO:
 
-1. Update controller to sort JSON data serverside
+1. Update controller to sort JSON data serverside (DONE)
 2. Reservations Page:
 3. Create Search Flights based on Origin and Destination with autocomplete field
 4. List View ORIGIN DESTINATION DATETIME SEATS

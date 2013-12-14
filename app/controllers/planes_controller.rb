@@ -4,7 +4,11 @@ class PlanesController < ApplicationController
   # GET /planes
   # GET /planes.json
   def index
-    @planes = Plane.all
+    if params[:query]
+      @planes = Plane.where('name ilike ?',"%#{params[:query]}%")
+    else
+      @planes = Plane.all
+    end
     @planes = @planes.order(created_at: :desc)
     respond_to do |format|
       format.html

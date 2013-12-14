@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require underscore
 //= require backbone
+//= require backbone.autocomplete
 //= require backbone/app
 //= require bootstrap
 //= require handlebars-v1.1.2.js

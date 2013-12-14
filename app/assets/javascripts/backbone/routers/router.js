@@ -44,5 +44,9 @@ stellarApp.Router = Backbone.Router.extend({
     console.log('render newReservation');
     var view = new stellarApp.ReservationView({model: new stellarApp.Reservation()});
     view.render();
+    new AutoCompleteView({
+      input: $('#origin_name'),
+      model: stellarApp.planes
+    }).render();
   }
 });
