@@ -12,6 +12,11 @@ TODO:
 
 
 
+15/12/13
+
+Experiencing backbone memory leak issues.
+Need to figure out best way to remove persistent views from memory;
+
 1/12/13
 TODO:
 Finish models.

@@ -1,7 +1,7 @@
 var stellarApp = stellarApp || {};
 
 stellarApp.ReservationView = Backbone.View.extend({
-  el: '#main',
+  el: '#reservation',
   events: {
 
   },
@@ -13,6 +13,7 @@ stellarApp.ReservationView = Backbone.View.extend({
     var template = Handlebars.compile(stellarApp.templates.reservationView);
     var model = this.model.toJSON();
     model.reservations = stellarApp.reservations.toJSON();
-    this.$el.html(template(model));
+    $('#main').html(template(model));
+    return this;
   }
 })

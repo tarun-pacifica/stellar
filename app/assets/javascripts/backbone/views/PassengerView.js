@@ -1,7 +1,7 @@
 var stellarApp = stellarApp || {};
 
 stellarApp.PassengerView = Backbone.View.extend({
-  el: '#main',
+  el: '#passenger',
   events: {
     "click #passenger_submit" : "createPassenger"
   },
@@ -15,7 +15,8 @@ stellarApp.PassengerView = Backbone.View.extend({
     var template = Handlebars.compile(stellarApp.templates.passengercreatorView);
     var model = this.model.toJSON();
     model.passengers = stellarApp.passengers.toJSON();
-    this.$el.html(template(model));
+    $('#main').html(template(model));
+    return this;
   },
   createPassenger: function (e) {
     e.preventDefault();

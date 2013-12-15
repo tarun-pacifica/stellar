@@ -1,7 +1,7 @@
 var stellarApp = stellarApp || {};
 
 stellarApp.FlightView = Backbone.View.extend({
-  el: '#main',
+  el: '#flight',
   events: {
     "click #create_flight": "createFlight",
   },
@@ -16,7 +16,8 @@ stellarApp.FlightView = Backbone.View.extend({
     var model = this.model.toJSON();
     model.planes = stellarApp.planes.toJSON();
     model.flights = stellarApp.flights.toJSON();
-    this.$el.html(template(model));
+    $('#main').html(template(model));
+    return this;
   },
   createFlight: function(e) {
     e.preventDefault();

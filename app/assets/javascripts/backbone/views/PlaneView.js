@@ -1,7 +1,7 @@
 var stellarApp = stellarApp || {};
 
 stellarApp.PlaneView = Backbone.View.extend({
-  el: '#main',
+  el: '#plainee',
   events: {
     "change #rows": "seat_render",
     "change #aisles": "seat_render",
@@ -17,7 +17,8 @@ stellarApp.PlaneView = Backbone.View.extend({
     var template = Handlebars.compile(stellarApp.templates.appView);
     var model = this.model.toJSON();
     model.planes = stellarApp.planes.toJSON();
-    this.$el.html(template(model));
+    $('#main').html(template(model));
+    return this; // escapes the view from memory, prevents memory leaking
   },
   createPlane: function(e) {
     e.preventDefault();
