@@ -4,7 +4,7 @@ TODO:
 
 1. Update controller to sort JSON data serverside (DONE)
 2. Reservations Page:
-3. Create Search Flights based on Origin and Destination with autocomplete field
+3. Create Search Flights based on Origin and Destination with autocomplete field (DONE)
 4. List View ORIGIN DESTINATION DATETIME SEATS
 5. FLights/:id RESTFUL URL in BACKBONE
 6.  CLICKABLE LIST OF PASSENGER NAMES AVAILABLE WITH SEAT MATRIX
