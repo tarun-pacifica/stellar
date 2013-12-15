@@ -4,10 +4,12 @@ class FlightsController < ApplicationController
   # GET /flights
   # GET /flights.json
   def index
-    if params[:query]
-      @flights = Flight.where('origin ilike ?', "%#{params[:query]}%")
+    if params[:q_origin]
+      @flights = Flight.where('origin ilike ?', "%#{params[:q_origin]}%")
+    elsif params[:q_destination]
+      @flights = Flight.where('origin ilike ?', "%#{params[:q_destination]}%")
     else
-    @flights = Flight.all.includes(:plane)
+      @flights = Flight.all.includes(:plane)
     end
     @flights = @flights.order(date_departed: :asc)
       respond_to do |format|

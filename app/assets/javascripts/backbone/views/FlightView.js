@@ -11,7 +11,7 @@ stellarApp.FlightView = Backbone.View.extend({
     this.listenTo(stellarApp.flights, 'add', this.render);
   },
   render: function() {
-    console.log('stellarApp is being rendered:'+stellarApp)
+    console.log('flightView is being rendered:'+stellarApp)
     var template = Handlebars.compile(stellarApp.templates.flightcreatorView);
     var model = this.model.toJSON();
     model.planes = stellarApp.planes.toJSON();

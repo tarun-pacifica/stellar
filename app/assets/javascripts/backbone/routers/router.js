@@ -9,20 +9,6 @@ stellarApp.Router = Backbone.Router.extend({
     'reservations': 'newReservation'
   },
   index: function() {
-    // var planeView = new stellarApp.PlaneView({collection:planeApp.planes});
-    // planeView.render();
-    // console.log('index:planeView.render');
-  },
-  getFlight: function(origin, destination) {
-    console.log('getflight');
-    var flight = stellarApp.flights.get(origin, destination);
-    var view = new stellarApp.FlightView({model:flight});
-    flight.fetch({
-      success: function(){
-        view.render();
-        console.log('getFlight:.fetchsuccess!');
-      }
-    })
   },
   newPlane: function(){
     var plane = new stellarApp.Plane();
@@ -45,8 +31,13 @@ stellarApp.Router = Backbone.Router.extend({
     var view = new stellarApp.ReservationView({model: new stellarApp.Reservation()});
     view.render();
     new AutoCompleteView({
-      input: $('#origin_name'),
       input: $('#destination_name'),
+      queryParameter: "q_destination",
+      model: stellarApp.flights
+    }).render();
+    new AutoCompleteView({
+      input: $('#origin_name'),
+      queryParameter: "q_origin",
       model: stellarApp.flights
     }).render();
   }

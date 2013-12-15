@@ -24,7 +24,7 @@ var AutoCompleteView = Backbone.View.extend({
     tagName: "ul",
     className: "autocomplete",
     queryParameter: "query",
-    minKeywordLength: 0,
+    minKeywordLength: 1,
     currentText: "",
     itemView: AutoCompleteItemView,
 
