@@ -9,7 +9,7 @@ stellarApp.PlaneView = Backbone.View.extend({
     "change #plane_name": "seat_render"
   },
   initialize: function() {
-    this.$el.off('click #create');
+    this.$el.off('click #create');// prevents create method firing multiple times, accidentally creating multiple db entries
     this.render();
     this.listenTo(stellarApp.planes, 'add', this.render);  },
   render: function() {

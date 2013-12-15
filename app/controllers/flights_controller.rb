@@ -6,8 +6,10 @@ class FlightsController < ApplicationController
   def index
     if params[:q_origin]
       @flights = Flight.where('origin ilike ?', "%#{params[:q_origin]}%")
+      @flights = @flights.distinct
     elsif params[:q_destination]
       @flights = Flight.where('origin ilike ?', "%#{params[:q_destination]}%")
+      @flights = @flights.distinct
     else
       @flights = Flight.all.includes(:plane)
     end
