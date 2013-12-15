@@ -14,6 +14,12 @@ class ReservationsController < ApplicationController
   # GET /reservations/1
   # GET /reservations/1.json
   def show
+    @flight = Flight.where(origin: params[:origin],destination: params[:destination])
+    binding.pry
+    respond_to do |format|
+      format.html
+      format.json { render :json => @flight}
+    end
   end
 
   # GET /reservations/new

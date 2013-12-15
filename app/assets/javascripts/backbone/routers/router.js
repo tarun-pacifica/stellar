@@ -13,14 +13,14 @@ stellarApp.Router = Backbone.Router.extend({
     // planeView.render();
     // console.log('index:planeView.render');
   },
-  getPlane: function(id) {
-    console.log('getplane');
-    var plane = stellarApp.planes.get(id);
-    var view = new stellarApp.PlaneView({model:plane});
-    plane.fetch({
+  getFlight: function(origin, destination) {
+    console.log('getflight');
+    var flight = stellarApp.flights.get(origin, destination);
+    var view = new stellarApp.FlightView({model:flight});
+    flight.fetch({
       success: function(){
         view.render();
-        console.log('getPlane:.fetchsuccess!');
+        console.log('getFlight:.fetchsuccess!');
       }
     })
   },
