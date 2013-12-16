@@ -22,6 +22,15 @@ class FlightsController < ApplicationController
 
   # GET /flights/1
   # GET /flights/1.json
+  def search
+    f = Flight.where({ origin: params[:origin_name], destination: params[:destination_name]})
+    respond_to do |format|
+      format.html
+      format.json { render :json => f}
+    end
+  end
+
+
   def show
   end
 

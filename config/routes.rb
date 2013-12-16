@@ -5,7 +5,10 @@ Stellar::Application.routes.draw do
 
   resources :reservations
 
+  get 'flights/search' => 'flights#search'
+
   resources :flights
 
   resources :planes
+
 end

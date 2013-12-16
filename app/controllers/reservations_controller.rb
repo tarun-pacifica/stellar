@@ -4,11 +4,7 @@ class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
   def index
-    f = Flight.where({ origin: params[:origin_name], destination: params[:destination_name]})
-    respond_to do |format|
-      format.html
-      format.json { render :json => f}
-    end
+    @reservations = Reservation.all
   end
 
   # GET /reservations/1

@@ -15,7 +15,9 @@ $(document).ready(function() {
     passengercreatorView: $('#passenger_creator_template').html(),
 
     // reservation templates
-    reservationView: $('#reservations_template').html()
+    reservationView: $('#reservations_template').html(),
+
+    matchedFlightsView: $('#matching_flights_template').html()
   };
 
   // planes
