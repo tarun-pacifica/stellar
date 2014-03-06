@@ -22,9 +22,7 @@ $(document).ready(function() {
 
   // planes
   stellarApp.planes = new stellarApp.Planes();
-  stellarApp.planes.fetch().done(function() {
-    console.log('gday, plane fetch', stellarApp.planes.models);
-  })
+  stellarApp.planes.fetch().done(function() {})
 
   //flights
   stellarApp.flights = new stellarApp.Flights();
@@ -39,7 +37,6 @@ $(document).ready(function() {
   stellarApp.passengers = new stellarApp.Passengers();
 
   stellarApp.passengers.fetch().done(function() {
-    console.log('passenger fetch' + stellarApp.passengers.models);
     var router = new stellarApp.Router();
     Backbone.history.start();
   })

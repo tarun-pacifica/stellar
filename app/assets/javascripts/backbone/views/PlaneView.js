@@ -14,7 +14,6 @@ stellarApp.PlaneView = Backbone.View.extend({
     this.listenTo(stellarApp.planes, 'add', this.render);
   },
   render: function() {
-    console.log('PlaneView is being rendered');
     var template = Handlebars.compile(stellarApp.templates.appView);
     var model = this.model.toJSON();
     model.planes = stellarApp.planes.toJSON();
@@ -33,7 +32,6 @@ stellarApp.PlaneView = Backbone.View.extend({
     });
   },
   seat_render: function() {
-    console.log('seat_render')
     var rowval = $('#rows').val()
     var aival = $('#aisles').val();
     var plane_name = $('#name').val();

@@ -20,26 +20,25 @@ stellarApp.ReservationView = Backbone.View.extend({
   flight_query: function(e) {
     e.preventDefault();
     alert('alert');
-    console.log('flight_query');
     $.ajax({
-        url: '/flights/search',
-        dataType: 'JSON',
-        data: {//queries the origin/destination from db
-          origin_name: $('#origin_name').val(),
-          destination_name: $('#destination_name').val()
-        }
-      }).done(function(flights) {
-        stellarApp.matchingFlights = new stellarApp.Flights();
-        //passes the search query into a template view to be rendered as a subview of FlightsView
-        _.each(flights, function(flight) {
-          f = new stellarApp.Flight();
-          f.set(flight);
-          stellarApp.matchingFlights.add(f);
-        });
-        var matchedview = new stellarApp.MatchedFlightsView({
-          collection: stellarApp.matchingFlights
-        });
-        matchedview.render();// only need to call render once, else this cancels out the previous render;
-      })
-    }
+      url: '/flights/search',
+      dataType: 'JSON',
+      data: { //queries the origin/destination from db
+        origin_name: $('#origin_name').val(),
+        destination_name: $('#destination_name').val()
+      }
+    }).done(function(flights) {
+      stellarApp.matchingFlights = new stellarApp.Flights();
+      //passes the search query into a template view to be rendered as a subview of FlightsView
+      _.each(flights, function(flight) {
+        f = new stellarApp.Flight();
+        f.set(flight);
+        stellarApp.matchingFlights.add(f);
+      });
+      var matchedview = new stellarApp.MatchedFlightsView({
+        collection: stellarApp.matchingFlights
+      });
+      matchedview.render(); // only need to call render once, else this cancels out the previous render;
+    })
+  }
 })
