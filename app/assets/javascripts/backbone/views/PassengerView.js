@@ -1,20 +1,20 @@
 var stellarApp = stellarApp || {};
 
 stellarApp.PassengerView = Backbone.View.extend({
-  el: '#passenger',
+  // el: '#passenger',
   events: {
     "click #passenger_submit": "createPassenger"
   },
   initialize: function() {
     this.$el.off('click #passenger_submit');
-    this.render();
+    // this.render();
     this.listenTo(stellarApp.passengers, 'add', this.render);
   },
   render: function() {
     var template = Handlebars.compile(stellarApp.templates.passengercreatorView);
     var model = this.model.toJSON();
     model.passengers = stellarApp.passengers.toJSON();
-    $('#main').html(template(model));
+    this.$el.html(template(model));
     return this;
   },
   createPassenger: function(e) {

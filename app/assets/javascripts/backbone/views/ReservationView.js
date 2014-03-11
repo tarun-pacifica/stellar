@@ -19,7 +19,6 @@ stellarApp.ReservationView = Backbone.View.extend({
   },
   flight_query: function(e) {
     e.preventDefault();
-    alert('alert');
     $.ajax({
       url: '/flights/search',
       dataType: 'JSON',
