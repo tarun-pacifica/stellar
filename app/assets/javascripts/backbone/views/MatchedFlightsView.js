@@ -11,7 +11,6 @@ stellarApp.MatchedFlightsView = Backbone.View.extend({
     $('#flight_viewer tbody').empty();
     this.$el.html(template(matchedflights));
     // remove(".noresults");
-    debugger;
     $("#flight_viewer table tbody").append(this.$el.html());
     return this;
   }
