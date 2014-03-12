@@ -164,7 +164,7 @@ interSTELLAR airlines<br>
     <input type="submit" id="passenger_submit" value="New Passenger"></br>
   </div>
   <div id="passenger_viewer">
-      <table>
+      <table class="table">
         <tr>
           <th>Name</th>
           <th>contact_number</th>
@@ -173,7 +173,7 @@ interSTELLAR airlines<br>
         </tr>
       {{#each passengers}}
         <tr>
-          <td>{{this.name}}</td>
+          <td><button class="button btn btn-default">{{this.name}}</button></td>
           <td>{{this.contact_number}}</td>
           <td>{{this.nationality}}</td>
           <td>{{this.meal_pref}}</td>
@@ -201,24 +201,29 @@ interSTELLAR airlines<br>
     </div>
     <div id="flight_viewer">
       <table>
-        <tr>
-          <th>call_sign</th>
-          <th>origin</th>
-          <th>destination</th>
-          <th>plane type</th>
-          <th>date_departed</th>
-          <th>time_departed</th>
-          <th>seats_available</th>
-        </tr>
+        <thead>
+          <tr>
+            <th>call_sign</th>
+            <th>origin</th>
+            <th>destination</th>
+            <th>plane type</th>
+            <th>date_departed</th>
+            <th>time_departed</th>
+            <th>seats_available</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
       </table>
+    </div>
+    <div id="flight_layout">
     </div>
   </div>
 </script>
-
+<!-- show matching flights in table -->
 <script type="text/x-handlebars-template" id="matching_flights_template">
       {{#each this}}
         <tr class="matchbox20">
-          <td>{{this.call_sign}}</td>
+          <td><button class="btn btn-default flight">{{this.call_sign}}</button></td>
           <td>{{this.origin}}</td>
           <td>{{this.destination}}</td>
           <td>{{this.plane.name}}</td>
@@ -228,7 +233,7 @@ interSTELLAR airlines<br>
         </tr>
         {{else}}
           <tr>
-          <td colspan=7>NO RESULTS FOUND</td>
+          <td class="noresults"colspan=7>NO RESULTS FOUND</td>
         </tr>
       {{/each}}
 </script>
