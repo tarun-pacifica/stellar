@@ -34,10 +34,14 @@ stellarApp.ReservationView = Backbone.View.extend({
         f.set(flight);
         stellarApp.matchingFlights.add(f);
       });
+      // if (matchedview) {
+      //   matchedview.remove()
+      // };
       var matchedview = new stellarApp.MatchedFlightsView({
         collection: stellarApp.matchingFlights
       });
       matchedview.render(); // only need to call render once, else this cancels out the previous render;
+      debugger;
     })
   }
 })

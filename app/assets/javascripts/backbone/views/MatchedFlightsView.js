@@ -8,9 +8,11 @@ stellarApp.MatchedFlightsView = Backbone.View.extend({
   render: function() {
     var template = Handlebars.compile(stellarApp.templates.matchedFlightsView);
     var matchedflights = this.collection.toJSON();
+    $('#flight_viewer tbody').empty();
     this.$el.html(template(matchedflights));
-    $("#flight_viewer table .matchbox20").remove();
-    $("#flight_viewer table").append(this.$el.html());
+    // remove(".noresults");
+    debugger;
+    $("#flight_viewer table tbody").append(this.$el.html());
     return this;
   }
 })
