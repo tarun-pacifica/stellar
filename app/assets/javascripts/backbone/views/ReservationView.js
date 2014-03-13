@@ -51,10 +51,9 @@ stellarApp.ReservationView = Backbone.View.extend({
   },
   display_seatplan: function(e) {
     e.preventDefault();
-    // this.render();
+    var id = $(e.target).closest('tr').find('.id_value').text();
     $.ajax({
-      url: '/flights/3',
-      // + this.$el.find($('.id_value').html()),
+      url: '/flights/' + id,
       dataType: 'json'
     }).done(function(id) {
       var aival = id.plane.aisles;
@@ -85,7 +84,8 @@ stellarApp.ReservationView = Backbone.View.extend({
     })
   },
   seat_picker: function(e) {
-    var seat_name = "1e"
+    console.log(e.target);
+    var seat_name = $(e.target).text();
     seat_taken['seat_name'] = passenger
     // Tarun :need to figure out the dom manipulation and come back to this
   }
