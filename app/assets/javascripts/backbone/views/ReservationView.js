@@ -4,7 +4,7 @@ stellarApp.ReservationView = Backbone.View.extend({
   tagName: 'div',
   events: {
     "click #flight_query_submit": "flight_query",
-    "click .flight": "display_flight"
+    "click .flight": "display_seatplan"
   },
   initialize: function() {
     //this.render();
@@ -44,13 +44,13 @@ stellarApp.ReservationView = Backbone.View.extend({
       matchedview.render(); // only need to call render once, else this cancels out the previous render;
     })
   },
-  display_flight: function(e) {
+  display_seatplan: function(e) {
     e.preventDefault();
-    this.render();
+    // this.render();
     $.ajax({
       url: '/flights/3',
       // + this.$el.find($('.id_value').html()),
-      dataType: 'json',
+      dataType: 'json'
     }).done(function(id) {
       var aival = id.plane.aisles;
       var rowval = id.plane.rows;
@@ -71,13 +71,13 @@ stellarApp.ReservationView = Backbone.View.extend({
         case "3":
           templateHTML = stellarApp.templates.tripleaisleView;
       }
-      this.$el.find('#seating', '#name').empty();
+      $('.seating').empty();
       var template = Handlebars.compile(templateHTML);
       for (var i = 0; i < parseInt(rowval); i++) {
-        this.$el.find('#seating').append(template({
+        $('.seating').append(template({
           row: i + 1
         }))
       }
     })
   }
-});
+})

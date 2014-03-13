@@ -52,10 +52,10 @@ stellarApp.PlaneView = Backbone.View.extend({
       case "3":
         templateHTML = stellarApp.templates.tripleaisleView;
     }
-    this.$el.find('#seating', '#name').empty();
+    this.$el.find('.seating', '#name').empty();
     var template = Handlebars.compile(templateHTML);
     for (var i = 0; i < parseInt(rowval); i++) {
-      this.$el.find('#seating').append(template({
+      this.$el.find('.seating').append(template({
         row: i + 1
       }))
     }
