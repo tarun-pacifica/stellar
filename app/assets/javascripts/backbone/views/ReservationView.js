@@ -3,7 +3,8 @@ var stellarApp = stellarApp || {};
 stellarApp.ReservationView = Backbone.View.extend({
   tagName: 'div',
   events: {
-    "click #flight_query_submit": "flight_query"
+    "click #flight_query_submit": "flight_query",
+    "click .flight": "display_flight"
   },
   initialize: function() {
     //this.render();
@@ -41,8 +42,24 @@ stellarApp.ReservationView = Backbone.View.extend({
         collection: stellarApp.matchingFlights
       });
       matchedview.render(); // only need to call render once, else this cancels out the previous render;
-      debugger;
-
     })
+  },
+  display_flight: function(e) {
+    e.preventDefault;
+    $.ajax({
+      url: '/flights/search',
+      dataType: JSON,
+      data: {
+        id: '4'
+      }
+    }).done(function(call_sign) {
+      console.log(call_sign)
+    });
+    // var templateHTML;
+    // templateHTML = stellarApp.templates.flightcreatorView;
+    // $('#flight_layout').empty();
+    // $('#flight_layout').append('<h1> BONJOUR </h1>');
+    // debugger;
+    // var template = Handlebars.compile(templateHTML);
   }
 })

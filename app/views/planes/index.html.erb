@@ -32,7 +32,7 @@ interSTELLAR airlines<br>
   </div>
   <div class="circle">
     <h2 id=>Aisles</h2>
-    <h2 id="aival">0</h2>
+    <h2 id="aival">1</h2>
   </div>
   <div class="circle">
     <h2>Rows</h2>
@@ -45,7 +45,7 @@ interSTELLAR airlines<br>
       <label>Rows</label>
       <input id="rows" name="rows" type="range".vertical min="0" max="40" value="25" step="5">
       <label>Aisles</label>
-      <input id="aisles"name="aisles" type="range" min="0" max="3" value="1">
+      <input id="aisles"name="aisles" type="range" min="1" max="3" value="1">
       <input type="submit" id="create" value="Create Plane"><br>
     </form>
     <div id="seating"></div>
@@ -210,6 +210,7 @@ interSTELLAR airlines<br>
             <th>date_departed</th>
             <th>time_departed</th>
             <th>seats_available</th>
+            <th>ID</th>
           </tr>
         </thead>
         <tbody></tbody>
@@ -229,6 +230,7 @@ interSTELLAR airlines<br>
           <td>{{this.plane.name}}</td>
           <td>{{this.date_departed}}</td>
           <td>{{this.time_departed}}</td>
+          <td class="id_value">{{this.id}}</td>
           <td></td>
         </tr>
         {{else}}

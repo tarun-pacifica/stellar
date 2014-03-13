@@ -9,7 +9,11 @@ class FlightsController < ApplicationController
       @flights = @flights.distinct
     elsif params[:q_destination]
       @flights = Flight.where('origin ilike ?', "%#{params[:q_destination]}%")
+      # Tarun not sure about this line, check
       @flights = @flights.distinct
+    elsif params[:q_id]
+      binding.pry
+      @flights = Flight.where(id:'#{params[:q_id]}')
     else
       @flights = Flight.all.includes(:plane)
     end
