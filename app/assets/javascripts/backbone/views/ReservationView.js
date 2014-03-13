@@ -45,15 +45,14 @@ stellarApp.ReservationView = Backbone.View.extend({
     })
   },
   display_flight: function(e) {
-    e.preventDefault;
+    e.preventDefault();
     $.ajax({
-      url: '/flights/search',
-      dataType: JSON,
-      data: {
-        id: '4'
-      }
-    }).done(function(call_sign) {
-      console.log(call_sign)
+      url: '/flights/' + 3,
+      dataType: 'json'
+    }).done(function(id) {
+      console.log(id.plane_id)
+      debugger;
+
     });
     // var templateHTML;
     // templateHTML = stellarApp.templates.flightcreatorView;

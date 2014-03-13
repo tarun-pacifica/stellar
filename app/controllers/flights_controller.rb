@@ -1,6 +1,5 @@
 class FlightsController < ApplicationController
   before_action :set_flight, only: [:show, :edit, :update, :destroy]
-
   # GET /flights
   # GET /flights.json
   def index
@@ -11,9 +10,6 @@ class FlightsController < ApplicationController
       @flights = Flight.where('origin ilike ?', "%#{params[:q_destination]}%")
       # Tarun not sure about this line, check
       @flights = @flights.distinct
-    elsif params[:q_id]
-      binding.pry
-      @flights = Flight.where(id:'#{params[:q_id]}')
     else
       @flights = Flight.all.includes(:plane)
     end
@@ -34,8 +30,13 @@ class FlightsController < ApplicationController
     end
   end
 
-
   def show
+      # binding.pry
+      @flights = Flight.find(params[:id])
+      respond_to do |f|
+        f.html
+        f.json {render :json => @flights, :include => :plane}
+      end
   end
 
   # GET /flights/new
