@@ -42,6 +42,7 @@ stellarApp.ReservationView = Backbone.View.extend({
       });
       matchedview.render(); // only need to call render once, else this cancels out the previous render;
       debugger;
+
     })
   }
 })
