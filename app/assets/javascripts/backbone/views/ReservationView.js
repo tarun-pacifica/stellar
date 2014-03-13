@@ -46,19 +46,38 @@ stellarApp.ReservationView = Backbone.View.extend({
   },
   display_flight: function(e) {
     e.preventDefault();
+    this.render();
     $.ajax({
-      url: '/flights/' + 3,
-      dataType: 'json'
+      url: '/flights/3',
+      // + this.$el.find($('.id_value').html()),
+      dataType: 'json',
     }).done(function(id) {
-      console.log(id.plane_id)
+      var aival = id.plane.aisles;
+      var rowval = id.plane.rows;
+      var plane_name = id.plane.name;
       debugger;
-
-    });
-    // var templateHTML;
-    // templateHTML = stellarApp.templates.flightcreatorView;
-    // $('#flight_layout').empty();
-    // $('#flight_layout').append('<h1> BONJOUR </h1>');
-    // debugger;
-    // var template = Handlebars.compile(templateHTML);
+      $('#rowval').html(rowval);
+      $('#aival').html(aival);
+      $('#plane_name').html(plane_name);
+      var templateHTML;
+      switch (aival) {
+        default:
+        case "1":
+          templateHTML = stellarApp.templates.singleaisleView;
+          break;
+        case "2":
+          templateHTML = stellarApp.templates.dualaisleView;
+          break;
+        case "3":
+          templateHTML = stellarApp.templates.tripleaisleView;
+      }
+      this.$el.find('#seating', '#name').empty();
+      var template = Handlebars.compile(templateHTML);
+      for (var i = 0; i < parseInt(rowval); i++) {
+        this.$el.find('#seating').append(template({
+          row: i + 1
+        }))
+      }
+    })
   }
-})
+});
