@@ -1,10 +1,15 @@
 var stellarApp = stellarApp || {};
 
+var seat_taken = {}
+
+var passenger = 'Tarun'
+
 stellarApp.ReservationView = Backbone.View.extend({
   tagName: 'div',
   events: {
     "click #flight_query_submit": "flight_query",
-    "click .flight": "display_seatplan"
+    "click .flight": "display_seatplan",
+    "click .seat": 'seat_picker'
   },
   initialize: function() {
     //this.render();
@@ -55,7 +60,6 @@ stellarApp.ReservationView = Backbone.View.extend({
       var aival = id.plane.aisles;
       var rowval = id.plane.rows;
       var plane_name = id.plane.name;
-      debugger;
       $('#rowval').html(rowval);
       $('#aival').html(aival);
       $('#plane_name').html(plane_name);
@@ -79,5 +83,10 @@ stellarApp.ReservationView = Backbone.View.extend({
         }))
       }
     })
+  },
+  seat_picker: function(e) {
+    var seat_name = "1e"
+    seat_taken['seat_name'] = passenger
+    // Tarun :need to figure out the dom manipulation and come back to this
   }
 })
