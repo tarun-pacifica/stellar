@@ -4,20 +4,33 @@
 
 .seat {
     border: 1px solid red;
-    width: 26px;
-    min-height: 26px;
+    width: 2em;
+    min-height: 2em;
     color: white;
     font-size: 10px;
     &:hover{
         background-color: red;
         border-radius: 50%;
+        width: 2em;
+        height: 2em;
     }
 }
+
+.booked {
+       background-color: red;
+       border-radius: 50%;
+       width: 2em;
+       height: 2em;
+}
+
+
 .aisle {
     width: 26px;
     min-height: 26px;
     background-color: pink;
 }
+
+
 
 .circle {
     background: red;

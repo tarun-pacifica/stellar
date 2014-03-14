@@ -25,9 +25,15 @@ class ReservationsController < ApplicationController
   # POST /reservations.json
   def create
     reservation = Reservation.create(
-      :name => params[:name])
-    reservation.save
-    render :json => reservation
+      :seat_name => params[:seat_name],
+      :flight_id => params[:flight_id],
+      :passenger_id => params[:passenger_id])
+
+    respond_to do |format|
+
+    format.html
+    format.json { render :json => reservation, :include => :flight}
+    end
   end
 
   # PATCH/PUT /reservations/1

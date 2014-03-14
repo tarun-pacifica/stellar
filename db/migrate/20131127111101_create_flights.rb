@@ -9,6 +9,7 @@ class CreateFlights < ActiveRecord::Migration
       t.time :time_departed
       t.date :date_arrived
       t.time :time_arrived
+      t.integer :seats_free
       t.timestamps
     end
   end

@@ -11,6 +11,7 @@
 #  time_departed :time
 #  date_arrived  :date
 #  time_arrived  :time
+#  seats_free    :integer
 #  created_at    :datetime
 #  updated_at    :datetime
 #

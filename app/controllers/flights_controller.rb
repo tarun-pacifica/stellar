@@ -16,7 +16,7 @@ class FlightsController < ApplicationController
     @flights = @flights.order(date_departed: :asc)
       respond_to do |format|
       format.html
-      format.json { render :json => @flights, :include => :plane }
+      format.json { render :json => @flights, :include => :plane, :methods => [:departure_day, :departure_time] }
     end
   end
 
@@ -26,7 +26,7 @@ class FlightsController < ApplicationController
     f = Flight.where({ origin: params[:origin_name], destination: params[:destination_name]})
     respond_to do |format|
       format.html
-      format.json { render :json => f}
+      format.json { render :json => f, :include => :plane}
     end
   end
 

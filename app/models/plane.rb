@@ -13,4 +13,9 @@
 class Plane < ActiveRecord::Base
 attr_accessible :name, :rows, :aisles
 has_many :flights
+
+  def seats_count
+    rows*(6+4*(aisles-1))
+  end
+
 end

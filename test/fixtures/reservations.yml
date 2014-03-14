@@ -6,7 +6,6 @@
 #  flight_id    :integer
 #  passenger_id :integer
 #  seat_name    :string(255)
-#  seat_pref    :string(255)
 #  created_at   :datetime
 #  updated_at   :datetime
 #

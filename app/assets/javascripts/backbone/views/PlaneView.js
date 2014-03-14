@@ -1,8 +1,6 @@
 var stellarApp = stellarApp || {};
 
 stellarApp.PlaneView = Backbone.View.extend({
-  // el: '#plainee',
-  //el: $('#main'),
   events: {
     "change #rows": "seat_render",
     "change #aisles": "seat_render",

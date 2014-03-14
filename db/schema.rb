@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20131127111134) do
     t.time     "time_departed"
     t.date     "date_arrived"
     t.time     "time_arrived"
+    t.integer  "seats_free"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -50,7 +51,6 @@ ActiveRecord::Schema.define(version: 20131127111134) do
     t.integer  "flight_id"
     t.integer  "passenger_id"
     t.string   "seat_name"
-    t.string   "seat_pref"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
