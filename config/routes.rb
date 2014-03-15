@@ -7,6 +7,8 @@ Stellar::Application.routes.draw do
 
   get 'flights/search' => 'flights#search'
 
+  get 'flights/seats/:id' => 'flights#seats'
+
   resources :flights
 
   resources :planes

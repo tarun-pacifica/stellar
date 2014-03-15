@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20131127111134) do
     t.string   "name"
     t.integer  "rows"
     t.integer  "aisles"
+    t.integer  "seats"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

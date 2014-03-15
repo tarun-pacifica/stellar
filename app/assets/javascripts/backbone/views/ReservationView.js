@@ -9,9 +9,7 @@ stellarApp.ReservationView = Backbone.View.extend({
     "click .flight": "display_seatplan",
     "click .seat": 'create_Reservation'
   },
-  initialize: function() {
-    this.listenTo(stellarApp.flights, "change", this.seat_changed)
-  },
+  initialize: function() {},
   render: function() {
     var template = Handlebars.compile(stellarApp.templates.reservationView);
     var model = this.model.toJSON();
@@ -25,6 +23,7 @@ stellarApp.ReservationView = Backbone.View.extend({
   },
   flight_query: function(e) {
     e.preventDefault();
+    $('.seating').empty;
     $.ajax({
       url: '/flights/search',
       dataType: 'JSON',
@@ -51,12 +50,12 @@ stellarApp.ReservationView = Backbone.View.extend({
   },
   display_seatplan: function(e) {
     e.preventDefault();
+    // $(.seating).empty();
     var id = $(e.target).closest('tr').find('.id_value').text();
     $.ajax({
       url: '/flights/' + id,
       dataType: 'json'
     }).done(function(id) {
-      debugger;
       var aival = id.plane.aisles;
       var rowval = id.plane.rows;
       var plane_name = id.plane.name;
@@ -83,6 +82,19 @@ stellarApp.ReservationView = Backbone.View.extend({
         }))
       }
     })
+      .done(function() {
+        var id = $(e.target).closest('tr').find('.id_value').text();
+        console.log('id:' + id)
+        $.ajax({
+          url: '/flights/seats/' + id,
+          dataType: 'json'
+        })
+          .done(function(data) {
+            for (var i = 0; i < data.length; i++) {
+              $('.plane-row div:contains(' + data[i] + ')').css('background-color', 'black')
+            }
+          })
+      })
   },
   create_Reservation: function(e) {
     $(e.target).addClass('booked');
@@ -92,13 +104,7 @@ stellarApp.ReservationView = Backbone.View.extend({
     // $('button.selected').closest('tr').find('.id_value').text());
     reservation.set('passenger_id', 4);
     reservation.save();
-  },
-  seatmap_render: function(e) {
+    this.listenTo(stellarApp.Flight, "change:seats_free", this.seat_changed)
 
-    // take each element in json object
-
-    // find the div which contains text matching the element name
-    // add css to the div
-    // $('.plane-row div:contains(' + a + ')').css('background-color', 'black')
   }
 })

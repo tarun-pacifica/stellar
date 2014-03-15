@@ -4,6 +4,7 @@ class CreatePlanes < ActiveRecord::Migration
       t.string :name
       t.integer :rows
       t.integer :aisles
+      t.integer :seats
       t.timestamps
     end
   end

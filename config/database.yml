@@ -3,7 +3,7 @@ development:
   encoding: unicode
   database: stellar_development
   pool: 5
-  username: MOOKBOOK13
+  username: Tarun
   password:
   host: localhost
   port: 5432

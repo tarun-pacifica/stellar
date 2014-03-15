@@ -6,12 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-plane_1 = Plane.create(:name => 'Hokker', :rows => '2',:aisles => '1')
-plane_2 = Plane.create(:name => 'A380', :rows => '3', :aisles => '3' )
-plane_3 = Plane.create(:name => 'B747', :rows => '5', :aisles => '2')
+plane_1 = Plane.create(:name => 'Hokker', :rows => '2',:aisles => '1', :seats => '10')
+plane_2 = Plane.create(:name => 'A380', :rows => '3', :aisles => '3', :seats => '42' )
+plane_3 = Plane.create(:name => 'B747', :rows => '5', :aisles => '2', :seats => '50')
 
-f1 = Flight.create(:call_sign => 'QF232',:origin => 'SYD', :destination => 'JFK',:seats_free => '34', :plane_id => plane_1.id, :departed => DateTime.parse('2:30 PM'), :journey_time => '6.5')
-f2 = Flight.create(:call_sign => 'QF56',:origin => 'LHR', :destination => 'HKG',:seats_free => '34', :plane_id => plane_2.id, :departed => DateTime.parse('3:30 PM'), :journey_time => '1.5')
+f1 = Flight.create(:call_sign => 'QF232',:origin => 'SYD', :destination => 'JFK',:seats_free => '10', :plane_id => plane_1.id, :departed => DateTime.parse('2:30 PM'), :journey_time => '6.5')
+f2 = Flight.create(:call_sign => 'QF56',:origin => 'LHR', :destination => 'HKG',:seats_free => '42', :plane_id => plane_2.id, :departed => DateTime.parse('3:30 PM'), :journey_time => '1.5')
 
 pass_1 = Passenger.create(:name => 'Tarun Mookhey', :contact_number => '0296359694', :nationality => 'australia', :meal_pref => 'vegan')
 

@@ -6,16 +6,26 @@
 #  name       :string(255)
 #  rows       :integer
 #  aisles     :integer
+#  seats      :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
 
 class Plane < ActiveRecord::Base
-attr_accessible :name, :rows, :aisles
-has_many :flights
+	attr_accessible :name, :rows, :aisles, :seats
+	has_many :flights
 
-  def seats_count
-    rows*(6+4*(aisles-1))
-  end
+	def seats_count
 
+		rows*5
+	end
+	#  	case aisles
+	#  	when 1
+	#  		self.rows*6
+	# when 2
+	#  		self.rows*10
+	# when 3
+	# 	self.rows*14
+	# end
+	#  end
 end

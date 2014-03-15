@@ -6,6 +6,7 @@
 #  name       :string(255)
 #  rows       :integer
 #  aisles     :integer
+#  seats      :integer
 #  created_at :datetime
 #  updated_at :datetime
 #

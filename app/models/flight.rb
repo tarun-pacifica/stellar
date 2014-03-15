@@ -22,11 +22,11 @@ class Flight < ActiveRecord::Base
   has_many :reservations
   has_many :passengers, through: :reservations
 
-  def reset_seats_free
+  def reset_seats_freee
     seats_total = self.plane.seats_count
     seats_booked = self.reservations.count
  #    raise self.errors.full_messages.inspect unless self.valid?
-   self.update_attribute(:seats_free, seats_total - seats_booked)
+   self.update_attribute(:seats_freee, seats_total - seats_booked)
 
   end
 
