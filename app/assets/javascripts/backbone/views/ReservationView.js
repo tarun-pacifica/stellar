@@ -91,5 +91,13 @@ stellarApp.ReservationView = Backbone.View.extend({
     // $('button.selected').closest('tr').find('.id_value').text());
     reservation.set('passenger_id', 4);
     reservation.save();
+  },
+  seatmap_render: function(e) {
+
+    // take each element in json object
+
+    // find the div which contains text matching the element name
+    // add css to the div
+    $('.plane-row div:contains(' + a + ')').css('background-color', 'black')
   }
 })

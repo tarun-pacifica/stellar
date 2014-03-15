@@ -4,8 +4,8 @@
 
 .seat {
     border: 1px solid red;
-    width: 2em;
-    min-height: 2em;
+    width: 1.75em;
+    min-height: 1.75em;
     color: white;
     font-size: 10px;
     &:hover{
@@ -25,12 +25,10 @@
 
 
 .aisle {
-    width: 26px;
-    min-height: 26px;
+    width: 20px;
+    min-height: 20px;
     background-color: pink;
 }
-
-
 
 .circle {
     background: red;

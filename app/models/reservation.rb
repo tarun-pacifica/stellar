@@ -20,4 +20,5 @@ class Reservation < ActiveRecord::Base
   def update_flight_seats
     self.flight.reset_seats_free
   end
+
 end
