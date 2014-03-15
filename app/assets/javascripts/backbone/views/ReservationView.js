@@ -56,6 +56,7 @@ stellarApp.ReservationView = Backbone.View.extend({
       url: '/flights/' + id,
       dataType: 'json'
     }).done(function(id) {
+      debugger;
       var aival = id.plane.aisles;
       var rowval = id.plane.rows;
       var plane_name = id.plane.name;
@@ -98,6 +99,6 @@ stellarApp.ReservationView = Backbone.View.extend({
 
     // find the div which contains text matching the element name
     // add css to the div
-    $('.plane-row div:contains(' + a + ')').css('background-color', 'black')
+    // $('.plane-row div:contains(' + a + ')').css('background-color', 'black')
   }
 })
