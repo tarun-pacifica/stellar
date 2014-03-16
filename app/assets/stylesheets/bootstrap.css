@@ -1766,14 +1766,15 @@ table th[class*="col-"] {
 .table > thead > tr.danger > th,
 .table > tbody > tr.danger > th,
 .table > tfoot > tr.danger > th {
-  background-color: #f2dede;
+  background-color: #FF1958;
+  color: white;
 }
 
 .table-hover > tbody > tr > td.danger:hover,
 .table-hover > tbody > tr > th.danger:hover,
 .table-hover > tbody > tr.danger:hover > td,
 .table-hover > tbody > tr.danger:hover > th {
-  background-color: #ebcccc;
+  background-color: #FF1958;
 }
 
 .table > thead > tr > td.warning,
@@ -2264,8 +2265,8 @@ textarea.input-lg {
 
 .btn:hover,
 .btn:focus {
-  color: #333333;
-  text-decoration: none;
+  color: #ffffff;
+  background-color: #FF1958;
 }
 
 .btn:active,
@@ -2298,8 +2299,8 @@ fieldset[disabled] .btn {
 .btn-default:active,
 .btn-default.active,
 .open .dropdown-toggle.btn-default {
-  color: #333333;
-  background-color: #ebebeb;
+  color: #white;
+  background-color: #FF1958;
   border-color: #adadad;
 }
 
@@ -2330,8 +2331,8 @@ fieldset[disabled] .btn-default.active {
 
 .btn-primary {
   color: #ffffff;
-  background-color: #428bca;
-  border-color: #357ebd;
+  background-color: #FF1958;
+  border-color: ##FF1958;
 }
 
 .btn-primary:hover,
@@ -2339,9 +2340,9 @@ fieldset[disabled] .btn-default.active {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-  color: #ffffff;
-  background-color: #3276b1;
-  border-color: #285e8e;
+  color: #FF1958;
+  background-color: #ffffff;
+  border-color: #FF1958;
 }
 
 .btn-primary:active,

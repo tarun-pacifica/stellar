@@ -1,253 +1,247 @@
 <header>
 <div class="index">
-  interSTELLAR airlines<br>
-  <a rel="stylesheet" href="/">index</a><br>
-  <a rel="stylesheet" href="#planes">planes!!</a><br>
-  <a rel="stylesheet" href="#flights">flights</a><br>
-  <a rel="stylesheet" href="#reservations">reservations</a><br>
-  <a rel="stylesheet" href="#passengers">passengers</a><br>
+<h1>interSTELLAR airlines</h1><br>
+<ul class="list-inline">
+<li><h6><a rel="stylesheet" href="/">index</a><br></h6></li>
+<li><h6><a rel="stylesheet" href="#planes">planes</a><br></h6></li>
+<li><h6><a rel="stylesheet" href="#flights">flights</a><br></h6></li>
+<li><h6><a rel="stylesheet" href="#passengers">passengers</a><br></h6></li>
+<li><h6><a rel="stylesheet" href="#reservations">reservations</a><br></h6></li>
+</ul>
 </div>
 <div class="flight_details">
-    <h3 class="name"></h3>
-    <h3 class="seats_name"></h3>
+<h2 class="name"></h3>
+<h2 class="seats_name"></h3>
 </div>
 </header>
+<div id="landing"></div>
 <div id="main"></div>
 <script id="plane_creator" type="text/x-handlebars-template">
-  <div id="plane_table">
-    <div>
-      <h1>Plane Creator</h1>
-      <h2 id="plane_name">Name?</h2>
-    </div>
-    <div id="plane_viewer">
-      <table>
-        <tr>
-          <th>NAME</th>
-          <th>ROWs</th>
-          <th>AISLEs</th>
-          <th>SEATS</th>
-        </tr>
-      {{#each planes}}
-        <tr>
-          <td>{{this.name}}</td>
-          <td>{{this.rows}}</td>
-          <td>{{this.aisles}}</td>
-          <td>{{this.seats}}</td>
-        </tr>
-      {{/each}}
-      </table>
-    </div>
-  </div>
-  <div class="circle">
-    <h2 id=>Aisles</h2>
-    <h2 id="aival">1</h2>
-  </div>
-  <div class="circle">
-    <h2>Rows</h2>
-    <h2 id="rowval">0</h2>
-  </div>
-  <div>
-    <form>
-      <label>Name</label>
-      <input name="name" id="name" type="text" autofocus="true"><br>
-      <label>Rows</label>
-      <input id="rows" name="rows" type="range".vertical min="0" max="40" value="25" step="5">
-      <label>Aisles</label>
-      <input id="aisles"name="aisles" type="range" min="1" max="3" value="1">
-      <input type="submit" id="create" value="Create Plane"><br>
-    </form>
-    <div class="seating"></div>
-  </div>
+<div class="plane_inputs">
+<h2>Starships</h2>
+<table class="table table-striped">
+<tr class="danger">
+<td class="plane_name">NAME</td>
+<td id="rowval"><strong>0</strong></td>
+<td id="aival"><strong>1</strong></td>
+<td id="seat_count">SEATS</td>
+</tr>
+</table>
+<form>
+<label>Name</label>
+<input name="name" id="input_name" type="text" autofocus="true"><br>
+<label>Rows</label>
+<input id="rows" name="rows" type="range".vertical min="0" max="40" value="25" step="5">
+<label>Aisles</label>
+<input id="aisles"name="aisles" type="range" min="1" max="3" value="1">
+<input type="submit" id="create" value="Create Plane"><br>
+</form>
+<div class="seating"></div>
+</div>
+<div id="plane_table">
+<div id="plane_viewer">
+<table class="table table-striped">
+<tr>
+<th>NAME</th>
+<th>ROWs</th>
+<th>AISLEs</th>
+<th>SEATS</th>
+</tr>
+{{#each planes}}
+<tr>
+<td>{{this.name}}</td>
+<td>{{this.rows}}</td>
+<td>{{this.aisles}}</td>
+<td>{{this.seats}}</td>
+</tr>
+{{/each}}
+</table>
+</div>
+</div>
 </script>
 
 <script id="single_aisle" type="text/x-handlebars-template">
-
 <div class="plane-row">
-  <div id="f"class="window seat">{{row}}f</div>
-  <div id="e"class="seat">{{row}}e</div>
-  <div id="d"class="seat">{{row}}d</div>
-  <div class="aisle"></div>
-  <div id="c"class="seat">{{row}}c</div>
-  <div id="b"class="seat">{{row}}b</div>
-  <div id="a"class="window seat">{{row}}a</div>
+<div id="f"class="window seat">{{row}}f</div>
+<div id="e"class="seat">{{row}}e</div>
+<div id="d"class="seat">{{row}}d</div>
+<div class="aisle"></div>
+<div id="c"class="seat">{{row}}c</div>
+<div id="b"class="seat">{{row}}b</div>
+<div id="a"class="window seat">{{row}}a</div>
 </div>
 </script>
 
 <script id="dual_aisle" type="text/x-handlebars-template">
 <div class="plane-row">
-  <div id="j"class="window seat">{{row}}j</div>
-  <div id="i"class="seat">{{row}}i</div>
-  <div id="h"class="seat">{{row}}h</div>
-  <div class="aisle"></div>
-  <div id="g"class="seat">{{row}}g</div>
-  <div id="f"class="seat">{{row}}f</div>
-  <div id="e"class="seat">{{row}}e</div>
-  <div id="d"class="seat">{{row}}d</div>
-  <div class="aisle"></div>
-  <div id="c"class="seat">{{row}}c</div>
-  <div id="b"class="seat">{{row}}b</div>
-  <div id="a"class="window seat">{{row}}a</div>
+<div id="j"class="window seat">{{row}}j</div>
+<div id="i"class="seat">{{row}}i</div>
+<div id="h"class="seat">{{row}}h</div>
+<div class="aisle"></div>
+<div id="g"class="seat">{{row}}g</div>
+<div id="f"class="seat">{{row}}f</div>
+<div id="e"class="seat">{{row}}e</div>
+<div id="d"class="seat">{{row}}d</div>
+<div class="aisle"></div>
+<div id="c"class="seat">{{row}}c</div>
+<div id="b"class="seat">{{row}}b</div>
+<div id="a"class="window seat">{{row}}a</div>
 </div>
 </script>
 
 <script id="triple_aisle" type="text/x-handlebars-template">
-
 <div class="plane-row">
-  <div id="n"class="seat window ">{{row}}n</div>
-  <div id="m"class="seat">{{row}}m</div>
-  <div id="l"class="seat">{{row}}l</div>
-  <div class="aisle"></div>
-  <div id="k"class="seat">{{row}}k</div>
-  <div id="j"class="seat">{{row}}j</div>
-  <div id="i"class="seat">{{row}}i</div>
-  <div id="h"class="seat">{{row}}h</div>
-  <div class="aisle"></div>
-  <div id="g"class="seat">{{row}}g</div>
-  <div id="f"class="seat">{{row}}f</div>
-  <div id="e"class="seat">{{row}}e</div>
-  <div id="d"class="seat">{{row}}d</div>
-  <div class="aisle"></div>
-  <div id="c"class="seat">{{row}}c</div>
-  <div id="b"class="seat">{{row}}b</div>
-  <div id="a"class="seat window">{{row}}a</div>
+<div id="n"class="seat window ">{{row}}n</div>
+<div id="m"class="seat">{{row}}m</div>
+<div id="l"class="seat">{{row}}l</div>
+<div class="aisle"></div>
+<div id="k"class="seat">{{row}}k</div>
+<div id="j"class="seat">{{row}}j</div>
+<div id="i"class="seat">{{row}}i</div>
+<div id="h"class="seat">{{row}}h</div>
+<div class="aisle"></div>
+<div id="g"class="seat">{{row}}g</div>
+<div id="f"class="seat">{{row}}f</div>
+<div id="e"class="seat">{{row}}e</div>
+<div id="d"class="seat">{{row}}d</div>
+<div class="aisle"></div>
+<div id="c"class="seat">{{row}}c</div>
+<div id="b"class="seat">{{row}}b</div>
+<div id="a"class="seat window">{{row}}a</div>
 </div>
 </script>
 
 <script id="flight_creator_template" type="text/x-handlebars-template">
-  <h1>Stellar Airlines</h1>
-  <input name="call_sign" id="call_sign" type="text" autofocus="true" placeholder="CALLSIGN"><br>
-  <input name="origin" id="origin" type="text" placeholder="ORIGIN"><br>
-  <input name="destination" id="destination" type="text" placeholder="DESTINATION"><br>
-  <select name="plane_type" id="plane_type">
-    {{#each planes}}
-    <option value="{{this.id}}">{{this.name}}</option>
-    {{/each}}
-  </select><br>
-  <input name="date_departed" id="date_departed" type="date"><br>
-  <input name="time_departed" id="time_departed" type="time"><br>
-  <input name="date_arrived" id="date_arrived" type="date"><br>
-  <input name="time_arrived" id="time_arrived" type="time"><br>
-  <input type="submit" id="create_flight" value="Create Flight"><br>
-  <div id="flight_table">
-    <div>
-      <h1>Flight Creator</h1>
-      <h2 id="flight_name">Name?</h2>
-    </div>
-    <div id="flight_viewer">
-      <table>
-        <tr>
-          <th>call_sign</th>
-          <th>origin</th>
-          <th>destination</th>
-          <th>plane type</th>
-          <th>date_departed</th>
-          <th>time_departed</th>
-          <th>date_arrived</th>
-          <th>time_arrived</th>
-        </tr>
+<div class="flight_input_area">
+  <h2>Flights</h2>
+  <form class="form-horizontal" role="form">
+  <input name="call_sign"class="form-control" id="call_sign" type="text" autofocus="true" placeholder="CALLSIGN"><br>
+  <input name="origin"class="form-control" id="origin" type="text" placeholder="ORIGIN"><br>
+  <input name="destination"class="form-control" id="destination" type="text" placeholder="DESTINATION"><br>
+  <select name="plane_type" id="plane_type" class="form-control">
+  {{#each planes}}
+  <option value="{{this.id}}">{{this.name}}</option>
+  {{/each}}
+  </select>
+  <input class="form-control" name="date_departed" id="date_departed" type="date">
+  <input class="form-control" name="time_departed" id="time_departed" type="time">
+  <input class="form-control" name="date_arrived" id="date_arrived" type="date">
+  <input class="form-control" name="time_arrived" id="time_arrived" type="time">
+  <input class="form-control btn btn-primary" type="submit" id="create_flight" value="Create Flight"></button>
+</form>
+</div>
+<div class="flight_table">
+    <table class="table table-striped">
+      <tr>
+        <th>call_sign</th>
+        <th>origin</th>
+        <th>destination</th>
+        <th>plane type</th>
+        <th>date_departed</th>
+        <th>time_departed</th>
+        <th>date_arrived</th>
+        <th>time_arrived</th>
+      </tr>
       {{#each flights}}
-        <tr>
-          <td>{{this.call_sign}}</td>
-          <td>{{this.origin}}</td>
-          <td>{{this.destination}}</td>
-          <td>{{this.plane.name}}</td>
-          <td>{{this.date_departed}}</td>
-          <td>{{this.time_departed}}</td>
-          <td>{{this.date_arrived}}</td>
-          <td>{{this.time_arrived}}</td>
-        </tr>
+      <tr>
+        <td>{{this.call_sign}}</td>
+        <td>{{this.origin}}</td>
+        <td>{{this.destination}}</td>
+        <td>{{this.plane.name}}</td>
+        <td>{{this.date_departed}}</td>
+        <td>{{this.time_departed}}</td>
+        <td>{{this.date_arrived}}</td>
+        <td>{{this.time_arrived}}</td>
+      </tr>
       {{/each}}
-      </table>
-    </div>
+    </table>
   </div>
+</div>
 </script>
 
 <script id="passenger_creator_template" type="text/x-handlebars-template">
-  <h1>Passenger Creator</h1>
-  <div>
-    <input type="text" autofocus="true" name="passenger_name" id="passenger_name" placeholder="Passenger Name">
-    <input type="text" name="contact_number" id="contact_number" placeholder="Contact Number">
-    <input type="text" name="nationality" id="nationality" placeholder="Nationality">
-    <input type="text" name="meal_pref" id="meal_pref" placeholder="Meal Preference">
-    <input type="submit" id="passenger_submit" value="New Passenger"></br>
-  </div>
-  <div id="passenger_viewer">
-      <table class="table">
-        <tr>
-          <th>Name</th>
-          <th>contact_number</th>
-          <th>Nationality</th>
-          <th>Meal Preference</th>
-          <th>id</th>
-        </tr>
-      {{#each passengers}}
-        <tr>
-          <td><button class="button btn btn-default passenger">{{this.name}}</button></td>
-          <td>{{this.contact_number}}</td>
-          <td>{{this.nationality}}</td>
-          <td>{{this.meal_pref}}</td>
-          <td class="pass_id">{{this.id}}</td>
-        </tr>
-      {{/each}}
-      </table>
-  </div>
+<div class="passenger_input_area">
+  <h2>Passengers</h2>
+  <form class="form-horizontal" role="form">
+  <input class="form-control" type="text" autofocus="true" name="passenger_name" id="passenger_name" placeholder="Passenger Name">
+  <input class="form-control" type="text" name="contact_number" id="contact_number" placeholder="Contact Number">
+  <input class="form-control" type="text" name="nationality" id="nationality" placeholder="Nationality">
+  <input class="form-control" type="text" name="meal_pref" id="meal_pref" placeholder="Meal Preference">
+  <input class="form-control btn btn-primary" type="submit" id="passenger_submit" value="Create Passenger"></br>
+  </form>
+</div>
+<div id="passenger_viewer">
+<table class="table">
+<tr>
+<th>Name</th>
+<th>contact_number</th>
+<th>Nationality</th>
+<th>Meal Preference</th>
+<th>id</th>
+</tr>
+{{#each passengers}}
+<tr>
+<td><button class="button btn btn-default passenger">{{this.name}}</button></td>
+<td>{{this.contact_number}}</td>
+<td>{{this.nationality}}</td>
+<td>{{this.meal_pref}}</td>
+<td class="pass_id">{{this.id}}</td>
+</tr>
+{{/each}}
+</table>
+</div>
 </script>
 
 <script type="text/x-handlebars-template" id="reservations_template">
+<div class="reservation_input_area">
+<h2>Reservations</h2>
   <div>
-    <h1>RESERVATIONS</h1>
-    <div>
     <form>
-      <h2>ORIGIN</h2>
-        <input type="text" autofocus="true" name="origin_name" id="origin_name" placeholder="origin_name">
-      <h2>DESTINATION</h2>
-        <input type="text" name="destination_name" id="destination_name" placeholder="destination_name"<br>
-        <input type="submit" id="flight_query_submit" value="submit">
+      <input class="form-control form-inline" type="text" autofocus="true" name="origin_name" id="origin_name" placeholder="ORIGIN">
+      <input type="text" class="form-control form-inline" name="destination_name" id="destination_name" placeholder="DESTINATION"<br>
+      <input type="submit" id="flight_query_submit" class="form-control btn btn-primary" value="SEARCH">
     </form>
-    </div>
-    <div id="flight_table">
-    <div>
-      <h1>Flights</h1>
-    </div>
-    <div id="flight_viewer">
-      <table>
-        <thead>
-          <tr>
-            <th>call_sign</th>
-            <th>origin</th>
-            <th>destination</th>
-            <th>plane type</th>
-            <th>date_departs</th>
-            <th>time_departs</th>
-            <th class="hidden">seats_available</th>
-            <th class="hidden">ID</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </div>
-    <div id="flight_layout">
-    </div>
-    <div class="seating">
-    </div>
   </div>
+  <div class="reservation_table">
+  <div>
+  </div>
+  <div class="reservation_flight_viewer">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+      <th>call_sign</th>
+      <th>origin</th>
+      <th>destination</th>
+      <th>plane type</th>
+      <th>date_departs</th>
+      <th>time_departs</th>
+      <th class="hidden">seats_available</th>
+      <th class="hidden">ID</th>
+      </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <div id="flight_layout"></div>
+  <div class="seating"></div>
+</div>
 </script>
 <!-- show matching flights in table -->
 <script type="text/x-handlebars-template" id="matching_flights_template">
-      {{#each this}}
-        <tr class="matchbox20">
-          <td><button class="btn btn-default flight">{{this.call_sign}}</button></td>
-          <td>{{this.origin}}</td>
-          <td>{{this.destination}}</td>
-          <td>{{this.plane.name}}</td>
-          <td>{{this.date_departed}}</td>
-          <td>{{this.time_departed}}</td>
-          <td class="hidden seats_avail">{{this.seats_free}}</td>
-          <td class="hidden id_value">{{this.id}}</td>
-        </tr>
-        {{else}}
-          <tr>
-          <td class="noresults"colspan=7>NO RESULTS FOUND</td>
-        </tr>
-      {{/each}}
+{{#each this}}
+<tr class="matchbox20">
+<td><button class="btn btn-default flight">{{this.call_sign}}</button></td>
+<td>{{this.origin}}</td>
+<td>{{this.destination}}</td>
+<td>{{this.plane.name}}</td>
+<td>{{this.date_departed}}</td>
+<td>{{this.time_departed}}</td>
+<td class="hidden seats_avail">{{this.seats_free}}</td>
+<td class="hidden id_value">{{this.id}}</td>
+</tr>
+{{else}}
+<tr>
+<td class="noresults"colspan=7>NO RESULTS FOUND</td>
+</tr>
+{{/each}}
 </script>

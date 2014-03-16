@@ -5,7 +5,7 @@ stellarApp.PlaneView = Backbone.View.extend({
     "change #rows": "seat_render",
     "change #aisles": "seat_render",
     "click #create": "createPlane",
-    "change #plane_name": "seat_render"
+    "change #input_name": "seat_render"
   },
   initialize: function() {
     this.$el.off('click #create'); // prevents create method firing multiple times, accidentally creating multiple db entries
@@ -24,7 +24,8 @@ stellarApp.PlaneView = Backbone.View.extend({
     var plane = new stellarApp.Plane();
     plane.set('rows', $('#rows').val());
     plane.set('aisles', $('#aisles').val());
-    plane.set('name', $('#name').val());
+    plane.set('name', $('#input_name').val());
+    plane.set('seats', $('.seating div.seat').length);
     plane.save().done(function() {
       stellarApp.planes.fetch();
     });
@@ -32,10 +33,12 @@ stellarApp.PlaneView = Backbone.View.extend({
   seat_render: function() {
     var rowval = $('#rows').val()
     var aival = $('#aisles').val();
-    var plane_name = $('#name').val();
+    var plane_name = $('#input_name').val();
+    var seats = $('.seating div.seat').length;
     $('#rowval').html(rowval);
     $('#aival').html(aival);
-    $('#plane_name').html(plane_name);
+    $('.plane_name').html(plane_name);
+    $('#seat_count').html(seats);
 
     var templateHTML;
 
@@ -53,7 +56,7 @@ stellarApp.PlaneView = Backbone.View.extend({
     this.$el.find('.seating', '#name').empty();
     var template = Handlebars.compile(templateHTML);
     for (var i = 0; i < parseInt(rowval); i++) {
-      this.$el.find('.seating').append(template({
+      this.$el.find('.seating').prepend(template({
         row: i + 1
       }))
     }

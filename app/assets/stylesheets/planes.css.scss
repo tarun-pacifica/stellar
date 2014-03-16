@@ -2,12 +2,53 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+html {
+  background: url('../images/fb.jpg') no-repeat;
+  height: 800px;
+width: 100%;
+background-size: cover;
+}
+
 .index{
-position: relative;
+    position: relative;
+    margin: 4em;
+    display: inline-block;
 }
 .flight_details{
-position: relative;
+    margin: 4em;
+    position: relative;
+    display: inline-block;
+    float: right;
+    max-width: 20em;
+    overflow: scroll;
 }
+
+h1, h2, th {
+    color: #FF1958;
+}
+
+#plane_viewer, #passenger_viewer {
+    padding: 4em;
+}
+
+.plane_inputs {
+    padding: 4em;
+}
+
+.seating {
+padding: 1.5em;
+}
+
+.plane-row {
+width: 2em;
+float: left;
+}
+
+.plane_table {
+    margin: 40em;
+    overflow: scroll;
+}
+
 .seat {
     border: 1px solid red;
     width: 1.75em;
@@ -22,11 +63,38 @@ position: relative;
     }
 }
 
+.flight_input_area, .reservation_input_area {
+width: 20em;
+padding-left: 4em;
+position: fixed;
+display: inline-block;
+}
+
+/*.reservation_flight_viewer {
+    background-color: yellow;
+    color: black;
+}
+*/
+
+.flight_table {
+    position: relative;
+    display: inline-block;
+ float: right;
+ margin: 4em;
+ overflow: scroll;
+ max-width: 70%;
+}
+
+.passenger_input_area {
+width: 60em;
+padding-left: 4em;
+}
+
 .booked {
-       background-color: red;
-       border-radius: 50%;
-       width: 2em;
-       height: 2em;
+    background-color: red;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
 }
 
 .hidden {
@@ -39,42 +107,7 @@ position: relative;
     background-color: pink;
 }
 
-.circle {
-    background: red;
-    color: white;
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    text-align: center;
-    display: inline-block;
-    top: 40%;
-    position: relative;
-    color: white;
-    outline-color: white;
-    vertical-align: center;
-    margin-left: 10px;
-}
 .row {
     min-width: 26px;
     border: 1px solid blue;
-}
-
-#plane_viewer, #flight_viewer, #passenger_viewer {
-    border: 1px solid red;
-    background-color: red;
-    color: white;
-}
-#plane_table, #flight_table {
-float: left}
-
-.plane-row {
-    width: 26px;
-    float: left;
-}
-.seating {
-    margin-top: 20px;
-}
-
-td,th {
-    width: 180px;
 }
