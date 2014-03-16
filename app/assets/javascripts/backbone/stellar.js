@@ -1,5 +1,8 @@
 var stellarApp = stellarApp || {};
 
+
+//reservations
+
 $(document).ready(function() {
   stellarApp.templates = {
     // plane templates
@@ -20,6 +23,9 @@ $(document).ready(function() {
     matchedFlightsView: $('#matching_flights_template').html()
   };
 
+  stellarApp.reservations = new stellarApp.Reservations();
+  stellarApp.reservations.fetch();
+
   // planes
   stellarApp.planes = new stellarApp.Planes();
   stellarApp.planes.fetch().done(function() {})
@@ -27,11 +33,6 @@ $(document).ready(function() {
   //flights
   stellarApp.flights = new stellarApp.Flights();
   stellarApp.flights.fetch().done(function() {});
-
-  //reservations
-
-  stellarApp.reservations = new stellarApp.Reservations();
-  stellarApp.reservations.fetch();
 
   //passengers
   stellarApp.passengers = new stellarApp.Passengers();

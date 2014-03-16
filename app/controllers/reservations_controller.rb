@@ -24,11 +24,17 @@ class ReservationsController < ApplicationController
   # POST /reservations
   # POST /reservations.json
   def create
-    reservation = Reservation.create(
-      :seat_name => params[:seat_name],
-      :flight_id => params[:flight_id],
-      :passenger_id => params[:passenger_id])
+    reservation = Reservation.new
+      reservation.seat_name = params[:seat_name]
+      reservation.flight_id = params[:flight_id]
+      reservation.passenger_id = params[:passenger_id]
+    reservation.save
 
+  #   seats_total = reservation.plane.seats_count
+  #   seats_booked = self.reservations.count
+  # # raise self.errors.full_messages.inspect unless self.valid?
+  #  self.update_attribute(:seats_free, seats_total - seats_booked)
+    # end
     respond_to do |format|
 
     format.html

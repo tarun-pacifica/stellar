@@ -1,6 +1,7 @@
 var stellarApp = stellarApp || {};
 
 var seat_taken = {};
+var id
 
 stellarApp.ReservationView = Backbone.View.extend({
   tagName: 'div',
@@ -26,7 +27,7 @@ stellarApp.ReservationView = Backbone.View.extend({
     $('.seating').empty;
     $.ajax({
       url: '/flights/search',
-      dataType: 'JSON',
+      dataType: 'json',
       data: { //queries the origin/destination from db
         origin_name: $('#origin_name').val(),
         destination_name: $('#destination_name').val()
@@ -45,13 +46,16 @@ stellarApp.ReservationView = Backbone.View.extend({
       var matchedview = new stellarApp.MatchedFlightsView({
         collection: stellarApp.matchingFlights
       });
-      matchedview.render(); // only need to call render once, else this cancels out the previous render;
+      stellarApp.flights.fetch().done(function() {
+        matchedview.render();
+      });
+      // only need to call render once, else this cancels out the previous render;
     })
   },
   display_seatplan: function(e) {
     e.preventDefault();
     // $(.seating).empty();
-    var id = $(e.target).closest('tr').find('.id_value').text();
+    id = $(e.target).closest('tr').find('.id_value').text();
     $.ajax({
       url: '/flights/' + id,
       dataType: 'json'
@@ -83,28 +87,29 @@ stellarApp.ReservationView = Backbone.View.extend({
       }
     })
       .done(function() {
-        var id = $(e.target).closest('tr').find('.id_value').text();
+        id = $(e.target).closest('tr').find('.id_value').text();
         console.log('id:' + id)
+        var seat = 0
         $.ajax({
           url: '/flights/seats/' + id,
           dataType: 'json'
         })
           .done(function(data) {
             for (var i = 0; i < data.length; i++) {
-              $('.plane-row div:contains(' + data[i] + ')').css('background-color', 'black')
+              $('.plane-row div:contains(' + data[i] + ')').css('background-color', 'black');
+              seat = seat + 1;
             }
+            console.log(seat + 'seat')
           })
       })
   },
   create_Reservation: function(e) {
     $(e.target).addClass('booked');
-    var reservation = new stellarApp.Reservation();
-    reservation.set('seat_name', $(e.target).text());
-    reservation.set('flight_id', 3);
-    // $('button.selected').closest('tr').find('.id_value').text());
-    reservation.set('passenger_id', 4);
-    reservation.save();
-    this.listenTo(stellarApp.Flight, "change:seats_free", this.seat_changed)
 
+    stellarApp.reservations.create({
+      seat_name: $(e.target).text(),
+      flight_id: id,
+      passenger_id: passenger
+    });
   }
 })

@@ -172,13 +172,15 @@ interSTELLAR airlines<br>
           <th>contact_number</th>
           <th>Nationality</th>
           <th>Meal Preference</th>
+          <th>id</th>
         </tr>
       {{#each passengers}}
         <tr>
-          <td><button class="button btn btn-default">{{this.name}}</button></td>
+          <td><button class="button btn btn-default passenger">{{this.name}}</button></td>
           <td>{{this.contact_number}}</td>
           <td>{{this.nationality}}</td>
           <td>{{this.meal_pref}}</td>
+          <td class="pass_id">{{this.id}}</td>
         </tr>
       {{/each}}
       </table>
@@ -188,6 +190,9 @@ interSTELLAR airlines<br>
 <script type="text/x-handlebars-template" id="reservations_template">
   <div>
     <h1>RESERVATIONS BOOKER</h1>
+    {{#each reservations}}
+    <h3>{{this.passenger.name}}</h3>
+    {{/each}}
     <div>
     <form>
       <h2>ORIGIN</h2>
@@ -234,7 +239,7 @@ interSTELLAR airlines<br>
           <td>{{this.plane.name}}</td>
           <td>{{this.date_departed}}</td>
           <td>{{this.time_departed}}</td>
-          <td>{{this.seats_free}}</td>
+          <td class="seats_avail">{{this.seats_free}}</td>
           <td class="id_value">{{this.id}}</td>
           <td></td>
         </tr>

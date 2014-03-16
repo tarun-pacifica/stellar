@@ -1,9 +1,12 @@
 var stellarApp = stellarApp || {};
 
+var passenger;
+
 stellarApp.PassengerView = Backbone.View.extend({
   // el: '#passenger',
   events: {
-    "click #passenger_submit": "createPassenger"
+    "click #passenger_submit": "createPassenger",
+    "click .passenger": "setPassenger"
   },
   initialize: function() {
     this.$el.off('click #passenger_submit');
@@ -27,5 +30,10 @@ stellarApp.PassengerView = Backbone.View.extend({
     passenger.save().done(function() {
       stellarApp.passengers.fetch();
     })
+  },
+  setPassenger: function(e) {
+    e.preventDefault;
+    passenger = $(e.target).closest('tr').find('.pass_id').text();
+    console.log(passenger);
   }
 })

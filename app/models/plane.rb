@@ -15,17 +15,18 @@ class Plane < ActiveRecord::Base
 	attr_accessible :name, :rows, :aisles, :seats
 	has_many :flights
 
-	def seats_count
-
-		rows*5
-	end
+	# def seats_count
 	#  	case aisles
 	#  	when 1
-	#  		self.rows*6
-	# when 2
-	#  		self.rows*10
-	# when 3
-	# 	self.rows*14
-	# end
-	#  end
+	#  		10
+	#  		# self.rows*6
+	# 	when 2
+	# 		20
+	#  		# self.rows*10
+	# 	when 3
+	# 		30
+	# 		# self.rows*14
+	# 	end
+	# self.save
+ # 	end
 end

@@ -1,4 +1,4 @@
-# == Schema Information
+  # == Schema Information
 #
 # Table name: reservations
 #
@@ -15,10 +15,10 @@ class Reservation < ActiveRecord::Base
   belongs_to :flight
   belongs_to :passenger
 
-  after_save :update_flight_seats
+ # after_commit :update_flight_seats
 
   def update_flight_seats
-    self.flight.reset_seats_free
+    self.flight.reset_seats_freee
   end
 
 end

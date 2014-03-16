@@ -14,6 +14,8 @@ class PassengersController < ApplicationController
   # GET /passengers/1
   # GET /passengers/1.json
   def show
+    # @passenger = Passenger.find(:name => params[:id])
+    # render :json => @passenger
   end
 
   # GET /passengers/new
