@@ -1,6 +1,8 @@
 var stellarApp = stellarApp || {};
 
 var passenger;
+var name;
+var seats;
 
 stellarApp.PassengerView = Backbone.View.extend({
   // el: '#passenger',
@@ -34,6 +36,7 @@ stellarApp.PassengerView = Backbone.View.extend({
   setPassenger: function(e) {
     e.preventDefault;
     passenger = $(e.target).closest('tr').find('.pass_id').text();
-    console.log(passenger);
+    name = $(e.target).text();
+    $('.name').text(name);
   }
 })

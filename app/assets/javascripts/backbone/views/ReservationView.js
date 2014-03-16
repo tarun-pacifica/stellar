@@ -1,6 +1,6 @@
 var stellarApp = stellarApp || {};
 
-var seat_taken = {};
+var seat_taken = [];
 var id
 
 stellarApp.ReservationView = Backbone.View.extend({
@@ -10,17 +10,26 @@ stellarApp.ReservationView = Backbone.View.extend({
     "click .flight": "display_seatplan",
     "click .seat": 'create_Reservation'
   },
-  initialize: function() {},
+  initialize: function() {
+    this.listenTo(stellarApp.reservations, 'add', this.seat_changed);
+  },
   render: function() {
     var template = Handlebars.compile(stellarApp.templates.reservationView);
     var model = this.model.toJSON();
     model.reservations = stellarApp.reservations.toJSON();
     this.$el.html(template(model))
     $('#main').html(this.$el);
+    $('.name').html(passenger.name)
     return this;
   },
   seat_changed: function() {
-    console.log('DT');
+    $('.booked').each(function() {
+      seat_taken.push($(this).text())
+      seat_taken = jQuery.unique(seat_taken)
+    });
+    var text = 'SEATs: ' + seat_taken.join(', ')
+    $('.seats_name').html(text);
+
   },
   flight_query: function(e) {
     e.preventDefault();
@@ -95,19 +104,27 @@ stellarApp.ReservationView = Backbone.View.extend({
           dataType: 'json'
         })
           .done(function(data) {
+            // debugger;
             for (var i = 0; i < data.length; i++) {
               $('.plane-row div:contains(' + data[i] + ')').css('background-color', 'black');
               seat = seat + 1;
             }
             console.log(seat + 'seat')
+
+            var freedom = $('.plane-row div:not(' + data[i] + ')').length;
+            var actual_free = freedom - seat - 1;
+            console.log('free:' + freedom);
+            $(e.target).closest('tr').find('.seats_avail').html(actual_free);
           })
+
       })
   },
   create_Reservation: function(e) {
     $(e.target).addClass('booked');
-
+    var seat_name = $(e.target).text()
+    seat_taken << seat_name;
     stellarApp.reservations.create({
-      seat_name: $(e.target).text(),
+      seat_name: seat_name,
       flight_id: id,
       passenger_id: passenger
     });

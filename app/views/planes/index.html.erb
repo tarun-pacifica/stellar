@@ -1,10 +1,16 @@
 <header>
-interSTELLAR airlines<br>
+<div class="index">
+  interSTELLAR airlines<br>
   <a rel="stylesheet" href="/">index</a><br>
   <a rel="stylesheet" href="#planes">planes!!</a><br>
   <a rel="stylesheet" href="#flights">flights</a><br>
   <a rel="stylesheet" href="#reservations">reservations</a><br>
   <a rel="stylesheet" href="#passengers">passengers</a><br>
+</div>
+<div class="flight_details">
+    <h3 class="name"></h3>
+    <h3 class="seats_name"></h3>
+</div>
 </header>
 <div id="main"></div>
 <script id="plane_creator" type="text/x-handlebars-template">
@@ -189,10 +195,7 @@ interSTELLAR airlines<br>
 
 <script type="text/x-handlebars-template" id="reservations_template">
   <div>
-    <h1>RESERVATIONS BOOKER</h1>
-    {{#each reservations}}
-    <h3>{{this.passenger.name}}</h3>
-    {{/each}}
+    <h1>RESERVATIONS</h1>
     <div>
     <form>
       <h2>ORIGIN</h2>
@@ -214,10 +217,10 @@ interSTELLAR airlines<br>
             <th>origin</th>
             <th>destination</th>
             <th>plane type</th>
-            <th>date_departed</th>
-            <th>time_departed</th>
-            <th>seats_available</th>
-            <th>ID</th>
+            <th>date_departs</th>
+            <th>time_departs</th>
+            <th class="hidden">seats_available</th>
+            <th class="hidden">ID</th>
           </tr>
         </thead>
         <tbody></tbody>
@@ -239,9 +242,8 @@ interSTELLAR airlines<br>
           <td>{{this.plane.name}}</td>
           <td>{{this.date_departed}}</td>
           <td>{{this.time_departed}}</td>
-          <td class="seats_avail">{{this.seats_free}}</td>
-          <td class="id_value">{{this.id}}</td>
-          <td></td>
+          <td class="hidden seats_avail">{{this.seats_free}}</td>
+          <td class="hidden id_value">{{this.id}}</td>
         </tr>
         {{else}}
           <tr>
