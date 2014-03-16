@@ -7,12 +7,14 @@ html {
   height: 800px;
 width: 100%;
 background-size: cover;
+font-family: 'Audiowide', cursive;
 }
 
 .index{
     position: relative;
     margin: 4em;
     display: inline-block;
+    font-family: 'Audiowide', cursive;
 }
 .flight_details{
     margin: 4em;
@@ -21,18 +23,22 @@ background-size: cover;
     float: right;
     max-width: 20em;
     overflow: scroll;
+    font-family: 'Audiowide', cursive;
 }
 
 h1, h2, th {
     color: #FF1958;
+    font-family: 'Audiowide', cursive;
 }
 
 #plane_viewer, #passenger_viewer {
     padding: 4em;
+    font-family: 'Audiowide', cursive;
 }
 
 .plane_inputs {
     padding: 4em;
+    font-family: 'Audiowide', cursive;
 }
 
 .seating {
@@ -55,6 +61,7 @@ float: left;
     min-height: 1.75em;
     color: white;
     font-size: 10px;
+    font-family: 'Audiowide', cursive;
     &:hover{
         background-color: red;
         border-radius: 50%;
@@ -68,6 +75,7 @@ width: 20em;
 padding-left: 4em;
 position: fixed;
 display: inline-block;
+font-family: 'Audiowide', cursive;
 }
 
 /*.reservation_flight_viewer {
@@ -83,11 +91,13 @@ display: inline-block;
  margin: 4em;
  overflow: scroll;
  max-width: 70%;
+ font-family: 'Audiowide', cursive;
 }
 
 .passenger_input_area {
 width: 60em;
 padding-left: 4em;
+font-family: 'Audiowide', cursive;
 }
 
 .booked {
