@@ -41,9 +41,9 @@ h1, h2, th {
     font-family: 'Audiowide', cursive;
 }
 
-.seating {
+/*.seating {
 padding: 1.5em;
-}
+}*/
 
 .plane-row {
 width: 2em;
@@ -70,19 +70,29 @@ float: left;
     }
 }
 
-.flight_input_area, .reservation_input_area {
-width: 20em;
+.flight_input_area, .reservation_input_area, .reservation_table {
 padding-left: 4em;
-position: fixed;
+position: absolute;
 display: inline-block;
 font-family: 'Audiowide', cursive;
 }
 
-/*.reservation_flight_viewer {
-    background-color: yellow;
-    color: black;
+.reservation_table {
+margin-left: 20em;
+position: relative;
 }
-*/
+
+.reservation_flight_viewer {
+width: 50em;
+margin-left: 20em;
+display: inline-block;
+position: relative;
+}
+
+.flight_input_area {
+width: 20em;
+display: inline-block;
+}
 
 .flight_table {
     position: relative;
