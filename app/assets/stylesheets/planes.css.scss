@@ -102,6 +102,7 @@ display: inline-block;
  overflow: scroll;
  max-width: 70%;
  font-family: 'Audiowide', cursive;
+ padding: 4em;
 }
 
 .passenger_input_area {
@@ -130,4 +131,11 @@ font-family: 'Audiowide', cursive;
 .row {
     min-width: 26px;
     border: 1px solid blue;
+}
+
+.break {
+    min-height: 2em;
+    min-width: 100%;
+    margin: 2em;
+    padding: 2em;
 }

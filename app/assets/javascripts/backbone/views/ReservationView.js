@@ -27,9 +27,8 @@ stellarApp.ReservationView = Backbone.View.extend({
       seat_taken.push($(this).text())
       seat_taken = jQuery.unique(seat_taken)
     });
-    var text = 'SEATs: ' + seat_taken.join(', ')
-    $('.seats_name').html(text);
-
+    var text = 'SEATs: ' + seat_taken.join(', ');
+    $('.seats_name').html('').html(text);
   },
   flight_query: function(e) {
     e.preventDefault();

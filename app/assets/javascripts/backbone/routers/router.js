@@ -32,7 +32,9 @@ stellarApp.Router = Backbone.Router.extend({
   },
   newPassenger: function() {
     if (this.pageView) {
-      this.pageView.remove()
+      this.pageView.remove();
+      $('.name').text('');
+      $('.seats_name').text('');
     };
     this.pageView = new stellarApp.PassengerView({
       model: new stellarApp.Passenger()
