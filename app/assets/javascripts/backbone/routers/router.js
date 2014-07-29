@@ -35,6 +35,7 @@ stellarApp.Router = Backbone.Router.extend({
       this.pageView.remove();
       $('.name').text('');
       $('.seats_name').text('');
+      seat_taken = [];
     };
     this.pageView = new stellarApp.PassengerView({
       model: new stellarApp.Passenger()

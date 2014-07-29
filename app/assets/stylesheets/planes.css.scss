@@ -41,9 +41,10 @@ h1, h2, th {
     font-family: 'Audiowide', cursive;
 }
 
-/*.seating {
-padding: 1.5em;
-}*/
+.seating {
+    padding: 4em;
+    margin: 4em;
+}
 
 .plane-row {
 width: 2em;
@@ -135,7 +136,15 @@ font-family: 'Audiowide', cursive;
 
 .break {
     min-height: 2em;
-    min-width: 100%;
+    min-width: 67%;
     margin: 2em;
     padding: 2em;
+}
+
+#image {
+    background-image: url(image-path('original.jpeg'));
+    height: 40em;
+    /*width: 90%;*/
+    background-size: cover;
+    margin: 2em;
 }
