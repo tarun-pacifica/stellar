@@ -5,6 +5,10 @@ stellarApp.Reservation = Backbone.Model.extend({
   defaults: {}
 });
 
+// stellarApp.Reservation.bind('remove',function(){
+//   this.destroy();
+// })
+
 stellarApp.Reservations = Backbone.Collection.extend({
   model: stellarApp.Reservation,
   url: '/reservations'

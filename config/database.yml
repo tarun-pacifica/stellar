@@ -8,9 +8,9 @@ development:
   host: localhost
   port: 5432
 
-  production:
-  adapter: postgresql
-  encoding: unicode
-  database: stellar_production
-  pool: 5
-  password:
+  # production:
+  # adapter: postgresql
+  # encoding: unicode
+  # database: stellar_production
+  # pool: 5
+  # password:

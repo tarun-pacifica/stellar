@@ -44,6 +44,9 @@ h1, h2, th {
 .seating {
     padding: 4em;
     margin: 4em;
+    overflow: scroll;
+    display: inline-block;
+    overflow: none;
 }
 
 .plane-row {
@@ -58,7 +61,7 @@ float: left;
 
 .seat {
     border: 1px solid red;
-    width: 1.75em;
+    width: 1em;
     min-height: 1.75em;
     color: white;
     font-size: 10px;
@@ -114,6 +117,12 @@ font-family: 'Audiowide', cursive;
 
 .booked {
     background-color: red;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+}
+.confirmed {
+    background-color: black;
     border-radius: 50%;
     width: 2em;
     height: 2em;

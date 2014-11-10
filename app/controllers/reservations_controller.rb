@@ -5,6 +5,10 @@ class ReservationsController < ApplicationController
   # GET /reservations.json
   def index
     @reservations = Reservation.all
+    respond_to do |format|
+      format.html
+      format.json { render :json => @reservations, :include => :flight}
+    end
   end
 
   # GET /reservations/1

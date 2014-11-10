@@ -8,7 +8,12 @@ stellarApp.Router = Backbone.Router.extend({
     'passengers': 'newPassenger',
     'reservations': 'newReservation'
   },
-  index: function() {},
+  index: function() {
+    app.flightView = new FlightView();
+    app.flights.fetch().done(function(){
+      app.flightView.render();
+    })
+  },
   newPlane: function() {
     if (this.pageView) {
       this.pageView.remove()
@@ -47,9 +52,10 @@ stellarApp.Router = Backbone.Router.extend({
     if (this.pageView) {
       this.pageView.remove()
     };
+    stellarApp.reservation = new stellarApp.Reservation;
     this.pageView = new stellarApp.ReservationView({
-      model: new stellarApp.Reservation()
-    });
+      model: stellarApp.reservation
+          });
     this.pageView.render();
     new AutoCompleteView({
       input: $('#destination_name'),
